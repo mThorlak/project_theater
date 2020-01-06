@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javax.annotation.Resource?>
+<Context path="/project_theater" docBase="~/IdeaProjects/project_theater">
+    <Resource name="project_theater"
+              global="base_test"
+              auth="Container"
+              type="javax.sql.DataSource"
+              driverClassName="com.mysql.jdbc.Driver"
+              url="jdbc:mysql://localhost/theater"
+              username=" ????"
+              password=" ?????"
+              maxTotal="8"
+              maxIdle="2"
+              maxWaitMillis="-1"/>
+</Context>
