@@ -24,6 +24,10 @@ public class bd_request {
     private String userNameBD;
     private String passwordBD;
 
+    private Connection connexion = null;
+    private Statement statement = null;
+    private ResultSet result = null;
+
     public bd_request () {
 
         /* Récupération des valeurs du fichier properties */
@@ -56,13 +60,9 @@ public class bd_request {
 
     public List<String> executerTests( HttpServletRequest request ) {
 
-        Connection connexion = null;
-        Statement statement = null;
-        ResultSet resultat = null;
-
         try {
             messages.add( "Connexion à la base de données..." );
-            connexion = DriverManager.getConnection(this.urlBD, this.userNameBD, this.passwordBD);
+            this.connexion = DriverManager.getConnection(this.urlBD, this.userNameBD, this.passwordBD);
             messages.add( "Connexion réussie !" );
 
             /* Création de l'objet gérant les requêtes */
@@ -76,13 +76,13 @@ public class bd_request {
             messages.add( "Résultat de la requête d'insertion : " + statut + "." );
 
             /* Exécution d'une requête de lecture */
-            resultat = statement.executeQuery( "SELECT id, password FROM roomManager;" );
+            this.result = statement.executeQuery( "SELECT id, password FROM roomManager;" );
             messages.add( "Requête \"SELECT id, password FROM roomManager;\" effectuée !" );
 
             /* Récupération des données du résultat de la requête de lecture */
-            while ( resultat.next() ) {
-                String id = resultat.getString( "id" );
-                String password = resultat.getString( "password" );
+            while ( this.result.next() ) {
+                String id = this.result.getString( "id" );
+                String password = this.result.getString( "password" );
                 /* Formatage des données pour affichage dans la JSP finale. */
                 messages.add( "Données retournées par la requête : id = " + id + ", password = " + password + "." );
             }
@@ -90,29 +90,64 @@ public class bd_request {
             messages.add( "Erreur lors de la connexion : <br/>"
                     + e.getMessage() );
         } finally {
-            messages.add( "Fermeture de l'objet ResultSet." );
-            if ( resultat != null ) {
-                try {
-                    resultat.close();
-                } catch ( SQLException ignore ) {
-                }
-            }
-            messages.add( "Fermeture de l'objet Statement." );
-            if ( statement != null ) {
-                try {
-                    statement.close();
-                } catch ( SQLException ignore ) {
-                }
-            }
-            messages.add( "Fermeture de l'objet Connection." );
-            if ( connexion != null ) {
-                try {
-                    connexion.close();
-                } catch ( SQLException ignore ) {
-                }
-            }
+            closeObject(connexion, statement, this.result);
         }
 
         return messages;
+    }
+
+    public List<String> showRoomManager( HttpServletRequest request ) {
+
+        try {
+            this.connexion = DriverManager.getConnection(this.urlBD, this.userNameBD, this.passwordBD);
+
+            /* Requête préparée et execution de cette dernière
+            *  (permet d'éviter les injections SQL par le client
+            */
+            PreparedStatement preparedStatement = connexion.prepareStatement("SELECT id, password FROM roomManager;");
+            this.result = preparedStatement.executeQuery();
+
+
+            /* Récupération des données du résultat de la requête de lecture */
+            while ( this.result.next() ) {
+                String id = this.result.getString( "id" );
+                String password = this.result.getString( "password" );
+                /* Formatage des données pour affichage dans la JSP finale. */
+                messages.add( "showRoomManager : id = " + id + ", password = " + password + "." );
+            }
+        } catch ( SQLException e ) {
+            e.getMessage();
+        } finally {
+            closeObject(connexion, statement, this.result);
+        }
+
+        return messages;
+    }
+
+    private void closeObject(Connection connexion, Statement statement, ResultSet resultat) {
+
+        if ( resultat != null ) {
+            try {
+                resultat.close();
+            } catch ( SQLException e ) {
+                e.getMessage();
+            }
+        }
+
+        if ( statement != null ) {
+            try {
+                statement.close();
+            } catch ( SQLException e ) {
+                e.getMessage();
+            }
+        }
+
+        if ( connexion != null ) {
+            try {
+                connexion.close();
+            } catch ( SQLException e ) {
+                e.getMessage();
+            }
+        }
     }
 }

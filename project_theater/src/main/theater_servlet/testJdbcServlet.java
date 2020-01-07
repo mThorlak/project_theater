@@ -16,8 +16,8 @@ public class testJdbcServlet extends HttpServlet {
 
     public void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
         /* Initialisation de l'objet Java et récupération des messages */
-        bd_request test = new bd_request();
-        List<String> messages = test.executerTests( request );
+        bd_request bd_request = new bd_request();
+        List<String> messages = bd_request.showRoomManager( request );
 
         /* Enregistrement de la liste des messages dans l'objet requête */
         request.setAttribute( ATT_MESSAGES, messages );
