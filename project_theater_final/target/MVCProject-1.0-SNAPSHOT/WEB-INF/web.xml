@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+    <!-- Sevlet name and class -->
+    <servlet>
+        <servlet-name>servletExample</servlet-name>
+        <servlet-class>theater_servlet.servletExample</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>createPestacle</servlet-name>
+        <servlet-class>theater_servlet.createPestacle</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>restrictiveAccess</servlet-name>
+        <servlet-class>theater_servlet.restrictiveAccess</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>createRoomManager</servlet-name>
+        <servlet-class>theater_servlet.roomManagerServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>connectRoomManager</servlet-name>
+        <servlet-class>theater_servlet.connectRoomManager</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>TestJDBC</servlet-name>
+        <servlet-class>theater_servlet.testJdbcServlet</servlet-class>
+    </servlet>
+
+
+    <!-- Sevlet mapping (route) -->
+    <servlet-mapping>
+        <servlet-name>servletExample</servlet-name>
+        <url-pattern>/servletExample</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>createPestacle</servlet-name>
+        <url-pattern>/createPestacle</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>restrictiveAccess</servlet-name>
+        <url-pattern>/restrictiveAccess</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>createRoomManager</servlet-name>
+        <url-pattern>/createRoomManager</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>connectRoomManager</servlet-name>
+        <url-pattern>/connexionRoomManager</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TestJDBC</servlet-name>
+        <url-pattern>/testjdbc</url-pattern>
+    </servlet-mapping>
+</web-app>
