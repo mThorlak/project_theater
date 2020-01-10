@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context path="/project_theater_final" docBase="~/IdeaProjects/project_theater/project_theater_final">
+    <Resource name="theater"
+              global="theater"
+              auth="Container"
+              type="javax.sql.DataSource"
+              driverClassName="com.mysql.cj.jdbc.Driver"
+              url="jdbc:mysql://localhost/theater"
+              username="admin"
+              password="root"
+              maxTotal="8"
+              maxIdle="2"
+              maxWaitMillis="-1"/>
+</Context>

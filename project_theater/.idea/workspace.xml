@@ -7,20 +7,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6297bc7e-63da-4ed6-8ccf-74cc9a382db3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../project_theater_final/.idea/artifacts/ejb_ejb_exploded.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../project_theater_final/.idea/dataSources.local.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../project_theater_final/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../project_theater_final/ejb/ejb.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../project_theater_final/project_theater_final.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../project_theater_final/src/main/resources/META-INF/persistence.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../project_theater_final/.idea/libraries/Java_EE_6_Java_EE_6.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../project_theater_final/.idea/libraries/jboss_client.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../project_theater_final/src/main/java/bd_request/bd.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../project_theater_final/src/main/java/bd_request/bd_request.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../project_theater_final/src/main/webapp/WEB-INF/vue/accesRoomManagerNO.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../project_theater_final/src/main/webapp/WEB-INF/vue/accesRoomManagerOK.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../project_theater_final/src/main/webapp/WEB-INF/vue/formConnexionRoomManager.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../project_theater_final/src/main/webapp/WEB-INF/vue/formCreatePestacle.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../project_theater_final/src/main/webapp/WEB-INF/vue/formCreateRoomManager.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../project_theater_final/src/main/webapp/WEB-INF/vue/test_jdbc.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../project_theater_final/src/main/webapp/WEB-INF/vue/vueExample1.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/bd_request/bd_request.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/bd_request/bd_request.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/theater_servlet/testJdbcServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/theater_servlet/testJdbcServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/bd_request/bd_request.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bd_request/bd_request.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/theater_servlet/testJdbcServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/theater_servlet/testJdbcServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project_theater/WEB-INF/classes/bd_request/bd_request.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project_theater/WEB-INF/classes/bd_request/bd_request.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/project_theater/WEB-INF/classes/theater_servlet/testJdbcServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/project_theater/WEB-INF/classes/theater_servlet/testJdbcServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project_theater_final/ejb/ejb.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../project_theater_final/ejb/ejb.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project_theater_final/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../project_theater_final/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project_theater_final/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../project_theater_final/src/main/webapp/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project_theater_final/target/project_theater_final/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../project_theater_final/target/project_theater_final/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../project_theater_final/target/project_theater_final/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../project_theater_final/target/project_theater_final/index.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -214,7 +217,7 @@
       <workItem from="1578162227623" duration="7495000" />
       <workItem from="1578218121849" duration="8883000" />
       <workItem from="1578333521271" duration="12375000" />
-      <workItem from="1578390079208" duration="2573000" />
+      <workItem from="1578390079208" duration="3802000" />
     </task>
     <servers />
   </component>
