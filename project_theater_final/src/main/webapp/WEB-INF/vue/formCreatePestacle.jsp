@@ -14,23 +14,19 @@
         <p>Vous pouvez créer un pestacle via ce formulaire.</p>
 
         <label for="name">Nom du pestacle <span class="requis">*</span></label>
-        <input type="text" id="name" name="name" value="<c:out value="${pestacle.name}"/>" size="20" maxlength="60" />
-        <span class="error">${formPestacle.error['name']}</span>
+        <input type="text" id="name" name="name" value="" size="20" maxlength="60" />
         <br />
 
         <label for="category">Catégorie <span class="requis">*</span></label>
-        <input type="text" id="category" name="category" value="<c:out value="${pestacle.category}"/>" size="20" maxlength="60" />
-        <span class="error">${formPestacle.error['category']}</span>
+        <input type="text" id="category" name="category" value="" size="20" maxlength="60" />
         <br />
 
         <label for="date">Date <span class="requis">*</span></label>
-        <input type="Date" id="date" name="date" value="" size="20" maxlength="60" />
-        <span class="error">${formPestacle.error['date']}</span>
+        <input type="text" id="date" name="date" value="" size="20" maxlength="60" />
         <br />
 
         <label for="place">Nombre de place</label>
-        <input type="text" id="place" name="place" value="<c:out value="${pestacle.place}"/>" size="20" maxlength="20" />
-        <span class="error">${formPestacle.error['place']}</span>
+        <input type="number" id="place" name="place" value="" size="20" maxlength="20" />
         <br />
 
         <input type="submit" value="Créer" class="sansLabel" />

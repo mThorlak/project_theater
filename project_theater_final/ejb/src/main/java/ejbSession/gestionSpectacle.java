@@ -19,6 +19,7 @@ public class gestionSpectacle implements gestionSpectacleRemote {
 
     @Override
     public spectacle addSpectacle(spectacle spectacle) {
+        System.out.println(spectacle);
         em.persist(spectacle);
         return spectacle;
     }

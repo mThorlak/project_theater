@@ -1,10 +1,12 @@
 package theater_forms;
 
-import theater_beans.pestacle;
+import ejbEntity.spectacle;
+import ejbSession.gestionSpectacle;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 public final class createPestacleForm {
 
@@ -13,8 +15,14 @@ public final class createPestacleForm {
     private static final String FIELD_DATE = "date";
     private static final String FIELD_PLACE = "place";
 
+    private ejbSession.gestionSpectacle gestionSpectacle;
+
     private String result;
     private Map<String, String> error = new HashMap<String, String>();
+
+    public createPestacleForm (gestionSpectacle gestionSpectacle) {
+        this.gestionSpectacle = gestionSpectacle;
+    }
 
     public String getResult() {
         return result;
@@ -24,13 +32,13 @@ public final class createPestacleForm {
         return error;
     }
 
-    public pestacle create(HttpServletRequest request) {
+    public spectacle create(HttpServletRequest request) {
         String name = getValueField(request, FIELD_NAME);
         String category = getValueField(request, FIELD_CATEGORY);
         String date = getValueField(request, FIELD_DATE);
-        String place = getValueField(request, FIELD_PLACE);
+        int place = Integer.parseInt(Objects.requireNonNull(getValueField(request, FIELD_PLACE)));
 
-        pestacle pestacle = new pestacle();
+        spectacle pestacle = new spectacle();
 
         try {
             validateString(name);
@@ -60,6 +68,8 @@ public final class createPestacleForm {
         } else {
             result = "Échec de la création du pestacle.";
         }
+
+        gestionSpectacle.addSpectacle(pestacle);
 
         return pestacle;
     }

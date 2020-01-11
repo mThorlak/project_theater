@@ -11,6 +11,7 @@ public final class createRoomManagerForm {
 
     private static final String FIELD_NAME = "name";
     private static final String FIELD_PASSWORD = "password";
+
     private gestionRoomManager gestionRoomManager;
 
     private String result;

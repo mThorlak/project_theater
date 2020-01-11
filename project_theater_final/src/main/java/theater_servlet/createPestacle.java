@@ -1,6 +1,7 @@
 package theater_servlet;
 
-import theater_beans.pestacle;
+import ejbEntity.spectacle;
+import ejbSession.gestionSpectacle;
 import theater_forms.createPestacleForm;
 
 import javax.servlet.ServletException;
@@ -22,14 +23,15 @@ public class createPestacle extends HttpServlet {
     public void doPost( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{
         /* Traitement des données du formulaire */
 
-        createPestacleForm formPestacle = new createPestacleForm();
+        gestionSpectacle gestionSpectacle = new gestionSpectacle();
+        createPestacleForm formPestacle = new createPestacleForm( gestionSpectacle);
 
         /* Appel au traitement et à la validation de la requête, et récupération du bean en résultant */
-        pestacle pestacle = formPestacle.create( request );
+        spectacle spectacle = formPestacle.create( request );
 
         /* Stockage du formulaire et du bean dans l'objet request */
         request.setAttribute( ATTRIBUT_FORM_PESTACLE, formPestacle );
-        request.setAttribute( ATTRIBUT_PESTACLE, pestacle );
+        request.setAttribute( ATTRIBUT_PESTACLE, spectacle );
 
         this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );
     }
