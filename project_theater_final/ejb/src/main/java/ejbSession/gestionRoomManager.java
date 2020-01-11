@@ -17,6 +17,10 @@ public class gestionRoomManager implements gestionRoomManagerRemote {
 
     @Override
     public roomManager addRoomManager(roomManager roomManager) {
+        System.out.println("In gestion room manager" + roomManager.toString());
+        System.out.println(roomManager.getId());
+        System.out.println(roomManager.getName());
+        System.out.println(roomManager.getPassword());
         em.persist(roomManager);
         return roomManager;
     }
