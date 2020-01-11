@@ -24,7 +24,11 @@ public class testJdbcServlet extends HttpServlet {
         System.out.println(roomManager.toString());
 
         gestionRoomManager manageRoomManager = new gestionRoomManager();
-        manageRoomManager.addRoomManager(roomManager);
+        try {
+            manageRoomManager.addRoomManager(roomManager);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         System.out.println(manageRoomManager.findRoomManager("test1"));
 

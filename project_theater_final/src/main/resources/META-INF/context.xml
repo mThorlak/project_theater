@@ -6,8 +6,8 @@
               type="javax.sql.DataSource"
               driverClassName="com.mysql.cj.jdbc.Driver"
               url="jdbc:mysql://localhost/theater"
-              username="admin"
-              password="root"
+              username="root"
+              password=""
               maxTotal="8"
               maxIdle="2"
               maxWaitMillis="-1"/>

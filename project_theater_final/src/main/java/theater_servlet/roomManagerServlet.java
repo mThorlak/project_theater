@@ -1,6 +1,7 @@
 package theater_servlet;
 
-import theater_beans.roomManager;
+import ejbEntity.roomManager;
+import ejbSession.gestionRoomManager;
 import theater_forms.createRoomManagerForm;
 
 import javax.servlet.ServletException;
@@ -22,10 +23,16 @@ public class roomManagerServlet extends HttpServlet {
     public void doPost( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{
         /* Traitement des données du formulaire */
 
-        createRoomManagerForm roomManagerForm = new createRoomManagerForm();
+        gestionRoomManager gestionRoomManager = new gestionRoomManager();
+        createRoomManagerForm roomManagerForm = new createRoomManagerForm(gestionRoomManager);
 
         /* Appel au traitement et à la validation de la requête, et récupération du bean en résultant */
-        roomManager roomManager = roomManagerForm.create( request );
+        roomManager roomManager = null;
+        try {
+            roomManager = roomManagerForm.create( request );
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         /* Stockage du formulaire et du bean dans l'objet request */
         request.setAttribute( ATT_FORM, roomManagerForm );

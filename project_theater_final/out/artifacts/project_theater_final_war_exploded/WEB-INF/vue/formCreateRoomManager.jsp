@@ -13,14 +13,12 @@
         <legend>Création gestionnaire de salle</legend>
         <p>Vous pouvez créer un gestionnaire de salle via ce formulaire.</p>
 
-        <label for="id">Identifiant <span class="requis"></span></label>
-        <input type="text" id="id" name="id" value="<c:out value="${ejbEntity.roomManager.id}"/>" size="20" maxlength="60" />
-        <span class="error">${createRoomManagerForm.error['id']}</span>
+        <label for="name">Nom <span class="requis"></span></label>
+        <input type="text" id="name" name="name" value="" size="20" maxlength="60" />
         <br />
 
         <label for="password">Mot de passe <span class="requis"></span></label>
-        <input type="password" id="password" name="password" value="<c:out value="${ejbEntity.roomManager.password}"/>" size="20" maxlength="60" />
-        <span class="error">${createRoomManagerForm.error['password']}</span>
+        <input type="password" id="password" name="password" value="" size="20" maxlength="60" />
         <br />
 
         <input type="submit" value="Créer" class="sansLabel" />
