@@ -58,6 +58,8 @@ public final class createRoomManagerForm {
         }
 
         System.out.println("End createRoomManagerForm");
+
+        // Envoi du room manager à l'ejb session
         gestionRoomManager.addRoomManager(roomManager);
         return roomManager;
     }
