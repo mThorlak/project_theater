@@ -1,7 +1,7 @@
 package theater_forms;
 
 import ejbEntity.spectacle;
-import ejbSession.gestionSpectacle;
+import ejbSession.gestionSpectacleRemote;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
@@ -15,12 +15,12 @@ public final class createPestacleForm {
     private static final String FIELD_DATE = "date";
     private static final String FIELD_PLACE = "place";
 
-    private ejbSession.gestionSpectacle gestionSpectacle;
+    private ejbSession.gestionSpectacleRemote gestionSpectacle;
 
     private String result;
     private Map<String, String> error = new HashMap<String, String>();
 
-    public createPestacleForm (gestionSpectacle gestionSpectacle) {
+    public createPestacleForm (gestionSpectacleRemote gestionSpectacle) {
         this.gestionSpectacle = gestionSpectacle;
     }
 
@@ -54,14 +54,8 @@ public final class createPestacleForm {
         }
         pestacle.setCategory(category);
 
-/*
-        try {
-            validateSale( place );
-        } catch ( Exception e ) {
-            setErreur( FIELD_PLACE, e.getMessage() );
-        }
-        pestacle.setPlace( place );
-*/
+        pestacle.setDate(date);
+        pestacle.setPlace(place);
 
         if (error.isEmpty()) {
             result = "Succès de la création du pestacle.";
@@ -69,6 +63,8 @@ public final class createPestacleForm {
             result = "Échec de la création du pestacle.";
         }
 
+        System.out.println("In end create pestacle form");
+        System.out.println(pestacle.toString());
         gestionSpectacle.addSpectacle(pestacle);
 
         return pestacle;

@@ -24,7 +24,6 @@ public class roomManagerServlet extends HttpServlet {
     public void doPost( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{
         /* Traitement des données du formulaire */
 
-
         try {
             gestionRoomManagerRemote gestionRoomManager = new connexionDB().getconnexionManagerRoomManager();
             createRoomManagerForm roomManagerForm = new createRoomManagerForm(gestionRoomManager);

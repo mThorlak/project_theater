@@ -1,7 +1,9 @@
 package theater_servlet;
 
+import connect_db.connexionDB;
 import ejbEntity.spectacle;
 import ejbSession.gestionSpectacle;
+import ejbSession.gestionSpectacleRemote;
 import theater_forms.createPestacleForm;
 
 import javax.servlet.ServletException;
@@ -23,15 +25,20 @@ public class createPestacle extends HttpServlet {
     public void doPost( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{
         /* Traitement des données du formulaire */
 
-        gestionSpectacle gestionSpectacle = new gestionSpectacle();
-        createPestacleForm formPestacle = new createPestacleForm( gestionSpectacle);
+        try {
+            gestionSpectacleRemote gestionSpectacle = new connexionDB().getConnexionManagerSpectacle();
+            createPestacleForm pestacleForm = new createPestacleForm(gestionSpectacle);
+            spectacle spectacle = null;
+            /* Appel au traitement et à la validation de la requête, et récupération du bean en résultant */
+            spectacle = pestacleForm.create( request );
 
-        /* Appel au traitement et à la validation de la requête, et récupération du bean en résultant */
-        spectacle spectacle = formPestacle.create( request );
+            /* Stockage du formulaire et du bean dans l'objet request */
+            request.setAttribute( ATTRIBUT_FORM_PESTACLE, pestacleForm );
+            request.setAttribute( ATTRIBUT_PESTACLE, spectacle );
 
-        /* Stockage du formulaire et du bean dans l'objet request */
-        request.setAttribute( ATTRIBUT_FORM_PESTACLE, formPestacle );
-        request.setAttribute( ATTRIBUT_PESTACLE, spectacle );
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );
     }
