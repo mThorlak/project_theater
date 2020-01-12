@@ -25,8 +25,12 @@
         <servlet-class>theater_servlet.connectRoomManager</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>TestJDBC</servlet-name>
-        <servlet-class>theater_servlet.testJdbcServlet</servlet-class>
+        <servlet-name>listSpectacleServlet</servlet-name>
+        <servlet-class>theater_servlet.listSpectacleServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>buyTicketSpectacle</servlet-name>
+        <servlet-class>theater_servlet.buyTicketSpectacle</servlet-class>
     </servlet>
 
 
@@ -52,7 +56,11 @@
         <url-pattern>/connexionRoomManager</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>TestJDBC</servlet-name>
-        <url-pattern>/testjdbc</url-pattern>
+        <servlet-name>listSpectacleServlet</servlet-name>
+        <url-pattern>/listSpectacle</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>buyTicketSpectacle</servlet-name>
+        <url-pattern>/buy</url-pattern>
     </servlet-mapping>
 </web-app>

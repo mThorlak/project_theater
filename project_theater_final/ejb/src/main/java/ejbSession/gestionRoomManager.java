@@ -33,4 +33,6 @@ public class gestionRoomManager implements gestionRoomManagerRemote {
     public List<roomManager> listAllRoomManager() {
         return null;
     }
+
+
 }

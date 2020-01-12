@@ -1,6 +1,5 @@
 package ejbSession;
 
-import ejbEntity.roomManager;
 import ejbEntity.spectacle;
 
 import javax.ejb.LocalBean;
@@ -25,12 +24,13 @@ public class gestionSpectacle implements gestionSpectacleRemote {
     }
 
     @Override
-    public spectacle findSpectacle(String name) {
-        return em.find(spectacle.class, name);
+    public spectacle findSpectacle(int id) {
+        System.out.println("in find : " + id);
+        return em.find(spectacle.class, id);
     }
 
     @Override
     public List<spectacle> listAllSpectacle() {
-        return null;
+        return em.createNamedQuery( "listCategory" ).getResultList();
     }
 }

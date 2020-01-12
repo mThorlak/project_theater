@@ -8,6 +8,9 @@ import java.util.List;
 @Remote
 public interface gestionSpectacleRemote {
     public spectacle addSpectacle(spectacle spectacle);
-    public spectacle findSpectacle(String Name);
+    public spectacle findSpectacle(int id);
     public List<spectacle> listAllSpectacle();
+/*    public List<spectacle> listSpectacleName();
+    public List<spectacle> listSpectacleCategory();
+    public List<spectacle> listSpectacleDate();*/
 }

@@ -1,12 +1,12 @@
 package ejbEntity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
+@NamedQueries({
+        @NamedQuery(name="listCategory", query="SELECT pestacle FROM spectacle pestacle"),
+})
 public class spectacle implements Serializable {
     @Id
     @GeneratedValue (strategy = GenerationType.AUTO)
@@ -67,12 +67,11 @@ public class spectacle implements Serializable {
 
     @Override
     public String toString() {
-        return "spectacle{" +
+        return "spectacle : " +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", category='" + category + '\'' +
                 ", date='" + date + '\'' +
-                ", place=" + place +
-                '}';
+                ", place=" + place;
     }
 }
