@@ -1,7 +1,7 @@
 package theater_forms;
 
 import ejbEntity.roomManager;
-import ejbSession.gestionRoomManager;
+import ejbSession.gestionRoomManagerRemote;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
@@ -12,12 +12,12 @@ public final class createRoomManagerForm {
     private static final String FIELD_NAME = "name";
     private static final String FIELD_PASSWORD = "password";
 
-    private gestionRoomManager gestionRoomManager;
+    private gestionRoomManagerRemote gestionRoomManager;
 
     private String result;
     private Map<String, String> error = new HashMap<String, String>();
 
-    public createRoomManagerForm(ejbSession.gestionRoomManager gestionRoomManager) {
+    public createRoomManagerForm(ejbSession.gestionRoomManagerRemote gestionRoomManager) {
         this.gestionRoomManager = gestionRoomManager;
     }
 
@@ -52,9 +52,9 @@ public final class createRoomManagerForm {
         roomManager.setPassword(password);
 
         if (error.isEmpty()) {
-            result = "Succès de la création du pestacle.";
+            result = "Succès de la création du room manager.";
         } else {
-            result = "Échec de la création du pestacle.";
+            result = "Échec de la création du room manager.";
         }
 
         System.out.println("End createRoomManagerForm");
