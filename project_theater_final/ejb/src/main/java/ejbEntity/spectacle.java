@@ -10,7 +10,7 @@ import java.io.Serializable;
 public class spectacle implements Serializable {
     @Id
     @GeneratedValue (strategy = GenerationType.AUTO)
-    private int id;
+    private int idSpectacle;
     private String name;
     private String category;
     private String date;
@@ -26,11 +26,11 @@ public class spectacle implements Serializable {
     }
 
     public int getId() {
-        return id;
+        return idSpectacle;
     }
 
     public void setId(int id) {
-        this.id = id;
+        this.idSpectacle = id;
     }
 
     public String getName() {
@@ -68,7 +68,7 @@ public class spectacle implements Serializable {
     @Override
     public String toString() {
         return "spectacle : " +
-                "id=" + id +
+                "idSpectacle=" + idSpectacle +
                 ", name='" + name + '\'' +
                 ", category='" + category + '\'' +
                 ", date='" + date + '\'' +
