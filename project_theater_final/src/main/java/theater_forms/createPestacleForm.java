@@ -38,24 +38,19 @@ public final class createPestacleForm {
         String date = getValueField(request, FIELD_DATE);
         int place = Integer.parseInt(Objects.requireNonNull(getValueField(request, FIELD_PLACE)));
 
-        spectacle pestacle = new spectacle();
-
         try {
             validateString(name);
         } catch (Exception e) {
             setError(FIELD_NAME, e.getMessage());
         }
-        pestacle.setName(name);
 
         try {
             validateString(category);
         } catch (Exception e) {
             setError(FIELD_CATEGORY, e.getMessage());
         }
-        pestacle.setCategory(category);
 
-        pestacle.setDate(date);
-        pestacle.setPlace(place);
+        spectacle pestacle = new spectacle(name, category, date, place);
 
         if (error.isEmpty()) {
             result = "Succès de la création du pestacle.";
@@ -65,7 +60,6 @@ public final class createPestacleForm {
 
         System.out.println("In end create pestacle form");
         System.out.println(pestacle.toString());
-        gestionSpectacle.addSpectacle(pestacle);
 
         return pestacle;
     }

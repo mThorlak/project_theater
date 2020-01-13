@@ -15,6 +15,8 @@ public class place implements Serializable {
     private int numPlace;
     private int price;
     private boolean state;
+    @ManyToOne
+    private spectacle spectacle;
 
     public place(){};
 
@@ -54,5 +56,13 @@ public class place implements Serializable {
 
     public void setState(boolean state) {
         this.state = state;
+    }
+
+    public ejbEntity.spectacle getSpectacle() {
+        return spectacle;
+    }
+
+    public void setSpectacle(ejbEntity.spectacle spectacle) {
+        this.spectacle = spectacle;
     }
 }
