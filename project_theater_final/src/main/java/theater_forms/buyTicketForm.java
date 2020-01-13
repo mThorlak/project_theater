@@ -1,7 +1,6 @@
 package theater_forms;
 
 import ejbEntity.spectacle;
-import ejbSession.gestionSpectacleRemote;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
