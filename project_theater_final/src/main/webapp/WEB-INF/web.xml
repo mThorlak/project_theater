@@ -5,10 +5,6 @@
          version="4.0">
     <!-- Sevlet name and class -->
     <servlet>
-        <servlet-name>servletExample</servlet-name>
-        <servlet-class>theater_servlet.servletExample</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>createPestacle</servlet-name>
         <servlet-class>theater_servlet.createPestacle</servlet-class>
     </servlet>
@@ -35,10 +31,6 @@
 
 
     <!-- Sevlet mapping (route) -->
-    <servlet-mapping>
-        <servlet-name>servletExample</servlet-name>
-        <url-pattern>/servletExample</url-pattern>
-    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>createPestacle</servlet-name>
         <url-pattern>/createPestacle</url-pattern>

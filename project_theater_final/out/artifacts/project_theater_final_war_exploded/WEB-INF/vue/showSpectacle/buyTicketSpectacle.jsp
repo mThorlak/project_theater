@@ -9,12 +9,19 @@
     <link type="text/css" rel="stylesheet" href="" />
 </head>
 <body>
-<h1>List spectacle : </h1>
-<ul>
 <%
     spectacle spectacle = (spectacle) request.getAttribute("spectacle");
     out.println(spectacle.toString());
 %>
-</ul>
+Combien de place voulez vous acheter ?
+<form method="post" action="buy">
+    <fieldset>
+        <label for="place">Nombre de place</label>
+        <input type="number" id="place" name="place" value="" size="20" maxlength="20" />
+        <input type="submit" value="Acheter" class="sansLabel" />
+
+        <p class="${empty buyTicketForm.error ? 'succes' : 'error'}">${buyTicketForm.result}</p>
+    </fieldset>
+</form>
 </body>
 </html>

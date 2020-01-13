@@ -33,4 +33,9 @@ public class gestionSpectacle implements gestionSpectacleRemote {
     public List<spectacle> listAllSpectacle() {
         return em.createNamedQuery( "listCategory" ).getResultList();
     }
+
+    @Override
+    public void buyTicket(spectacle spectacle) {
+        em.merge(spectacle);
+    }
 }

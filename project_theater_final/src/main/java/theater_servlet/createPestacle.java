@@ -2,7 +2,6 @@ package theater_servlet;
 
 import connect_db.connexionDB;
 import ejbEntity.spectacle;
-import ejbSession.gestionSpectacle;
 import ejbSession.gestionSpectacleRemote;
 import theater_forms.createPestacleForm;
 
