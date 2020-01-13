@@ -24,7 +24,7 @@ public class buyTicketSpectacle extends HttpServlet {
         try {
             // On cherche le spectacle selon l'id passé et on le renvoi dans la vue
             spectacle spectacle;
-            int idParam = Integer.parseInt(request.getParameter( "spectacle" ));
+            Long idParam = Long.parseLong(request.getParameter( "spectacle" ));
             gestionSpectacleRemote gestion = new connexionDB().getConnexionManagerSpectacle();
             spectacle = gestion.findSpectacle(idParam);
             this.spectacle = spectacle;

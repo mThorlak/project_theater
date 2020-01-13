@@ -23,7 +23,7 @@ public class gestionSpectacle implements gestionSpectacleRemote {
     }
 
     @Override
-    public spectacle findSpectacle(int id) {
+    public spectacle findSpectacle(Long id) {
         System.out.println("in find : " + id);
         return em.find(spectacle.class, id);
     }

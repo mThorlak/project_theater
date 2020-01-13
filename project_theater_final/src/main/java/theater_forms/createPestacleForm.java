@@ -12,7 +12,6 @@ public final class createPestacleForm {
     private static final String FIELD_NAME = "name";
     private static final String FIELD_CATEGORY = "category";
     private static final String FIELD_DATE = "date";
-    private static final String FIELD_PLACE = "place";
 
     private ejbSession.gestionSpectacleRemote gestionSpectacle;
 
