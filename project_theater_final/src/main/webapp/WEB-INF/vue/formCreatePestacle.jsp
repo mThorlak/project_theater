@@ -25,10 +25,6 @@
         <input type="text" id="date" name="date" value="" size="20" maxlength="60" />
         <br />
 
-        <label for="place">Nombre de place</label>
-        <input type="number" id="place" name="place" value="" size="20" maxlength="20" />
-        <br />
-
         <input type="submit" value="Créer" class="sansLabel" />
         <br />
 

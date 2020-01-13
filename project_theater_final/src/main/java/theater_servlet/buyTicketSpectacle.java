@@ -41,31 +41,13 @@ public class buyTicketSpectacle extends HttpServlet {
         /* Traitement des données du formulaire */
 
         try {
-
             spectacle spectacle;
             System.out.println("In doPost : " + this.spectacle);
             gestionSpectacleRemote gestionSpectacle = new connexionDB().getConnexionManagerSpectacle();
             buyTicketForm buyTicketForm = new buyTicketForm(this.spectacle);
             spectacle = buyTicketForm.create( request );
             System.out.println("Out of form -> " + spectacle);
-            gestionSpectacle.buyTicket(spectacle);
-            /*
-            Make following line in a particular servlet
-            Or find a way to allow user to buy directly since this jsp linked
-            */
-            /*
-            spectacle.setPlace(50);
-            System.out.println(spectacle);
-            gestion.butTicket(spectacle);
-            ------------------------------------------------------------------------------
-            */
-            //gestionSpectacleRemote gestionSpectacle = new connexionDB().getConnexionManagerSpectacle();
-            //createPestacleForm pestacleForm = new createPestacleForm(gestionSpectacle);
-            //spectacle spectacle = null;
-            /* Appel au traitement et à la validation de la requête, et récupération du bean en résultant */
-            //spectacle = pestacleForm.create( request );
-
-            /* Stockage du formulaire et du bean dans l'objet request */
+            // gestionSpectacle.buyTicket(spectacle);
             request.setAttribute( ATTRIBUT_FORM_BUY_TICKET, buyTicketForm );
             request.setAttribute( ATTRIBUT_SPECTACLE, spectacle );
 

@@ -18,7 +18,6 @@ public class gestionSpectacle implements gestionSpectacleRemote {
 
     @Override
     public spectacle addSpectacle(spectacle spectacle) {
-        System.out.println(spectacle);
         em.persist(spectacle);
         return spectacle;
     }
@@ -37,5 +36,11 @@ public class gestionSpectacle implements gestionSpectacleRemote {
     @Override
     public void buyTicket(spectacle spectacle) {
         em.merge(spectacle);
+    }
+
+    @Override
+    public List<spectacle> listAllPlaceSpectacle(spectacle spectacle) {
+        //return em.find(spectacle.class, places);
+        return null;
     }
 }

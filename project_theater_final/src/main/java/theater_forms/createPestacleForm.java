@@ -6,7 +6,6 @@ import ejbSession.gestionSpectacleRemote;
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
 
 public final class createPestacleForm {
 
@@ -36,7 +35,6 @@ public final class createPestacleForm {
         String name = getValueField(request, FIELD_NAME);
         String category = getValueField(request, FIELD_CATEGORY);
         String date = getValueField(request, FIELD_DATE);
-        int place = Integer.parseInt(Objects.requireNonNull(getValueField(request, FIELD_PLACE)));
 
         try {
             validateString(name);
@@ -50,7 +48,7 @@ public final class createPestacleForm {
             setError(FIELD_CATEGORY, e.getMessage());
         }
 
-        spectacle pestacle = new spectacle(name, category, date, place);
+        spectacle pestacle = new spectacle(name, category, date);
 
         if (error.isEmpty()) {
             result = "Succès de la création du pestacle.";

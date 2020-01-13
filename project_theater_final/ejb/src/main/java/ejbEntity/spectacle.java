@@ -12,32 +12,29 @@ import java.util.List;
 public class spectacle implements Serializable {
     @Id
     @GeneratedValue (strategy = GenerationType.AUTO)
-    private int idSpectacle;
+    private Long idSpectacle;
     private String name;
     private String category;
     private String date;
-    private int place;
 
     @OneToMany(mappedBy = "spectacle", cascade={CascadeType.PERSIST, CascadeType.REMOVE}, orphanRemoval=true)
     private List<place> places;
 
     public spectacle(){};
 
-    public spectacle (String name, String category, String date, int place) {
+    public spectacle (String name, String category, String date) {
         System.out.println("In spectacle constructor");
         this.name = name;
         this.category = category;
         this.date = date;
-        this.place = place;
         this.places = generatePlace();
-        System.out.println(this.places);
     }
 
-    public int getIdSpectacle() {
+    public Long getIdSpectacle() {
         return idSpectacle;
     }
 
-    public void setIdSpectacle(int idSpectacle) {
+    public void setIdSpectacle(Long idSpectacle) {
         this.idSpectacle = idSpectacle;
     }
 
@@ -65,14 +62,6 @@ public class spectacle implements Serializable {
         this.date = date;
     }
 
-    public int getPlace() {
-        return place;
-    }
-
-    public void setPlace(int place) {
-        this.place = place;
-    }
-
     public List<place> getPlaces() {
         return places;
     }
@@ -90,14 +79,14 @@ public class spectacle implements Serializable {
 
         while (i < 100) {
             if (i < 30)
-                places.add(new place(i, price, false));
+                places.add(new place(i, price, false, this));
             else if (i < 70) {
                 price = 40;
-                places.add(new place(i, price, false));
+                places.add(new place(i, price, false, this));
             }
             else {
                 price = 20;
-                places.add(new place(i, price, false));
+                places.add(new place(i, price, false, this));
             }
                 i++;
         }
@@ -111,7 +100,6 @@ public class spectacle implements Serializable {
                 "idSpectacle=" + idSpectacle +
                 ", name='" + name + '\'' +
                 ", category='" + category + '\'' +
-                ", date='" + date + '\'' +
-                ", place=" + place;
+                ", date='" + date + '\'';
     }
 }

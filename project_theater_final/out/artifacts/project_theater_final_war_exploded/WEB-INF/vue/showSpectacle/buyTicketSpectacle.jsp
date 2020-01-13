@@ -16,6 +16,13 @@
 Combien de place voulez vous acheter ?
 <form method="post" action="buy">
     <fieldset>
+        <label for="price"></label>
+        <select name="price" id="price">
+            <option value="">--Please choose a price--</option>
+            <option value="20">20€</option>
+            <option value="40">40€</option>
+            <option value="55">55€</option>
+        </select>
         <label for="place">Nombre de place</label>
         <input type="number" id="place" name="place" value="" size="20" maxlength="20" />
         <input type="submit" value="Acheter" class="sansLabel" />

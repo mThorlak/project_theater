@@ -21,9 +21,6 @@ public class listSpectacleServlet extends HttpServlet {
         try {
             gestionSpectacleRemote gestion = new connexionDB().getConnexionManagerSpectacle();
             List<spectacle> spectacles = gestion.listAllSpectacle();
-            for (spectacle eachSpectacle : spectacles) {
-                System.out.println(eachSpectacle.toString());
-            }
             request.setAttribute( "spectacles", spectacles );
         } catch (Exception e) {
             e.printStackTrace();

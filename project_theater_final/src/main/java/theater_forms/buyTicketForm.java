@@ -10,6 +10,7 @@ import java.util.Objects;
 public final class buyTicketForm {
 
     private static final String FIELD_PLACE = "place";
+    private static final String FIELD_PRICE = "price";
 
     private spectacle spectacle;
 
@@ -30,16 +31,19 @@ public final class buyTicketForm {
 
     public spectacle create(HttpServletRequest request) {
         int place = Integer.parseInt(Objects.requireNonNull(getValueField(request, FIELD_PLACE)));
+        int price = Integer.parseInt(Objects.requireNonNull(getValueField(request, FIELD_PRICE)));
         spectacle spectacle = this.spectacle;
 
-        try {
+/*        try {
             validateNbTicketBuying(place, spectacle.getPlace());
             spectacle.setPlace(spectacle.getPlace() - place);
         } catch (Exception e) {
             setError(FIELD_PLACE, e.getMessage());
-        }
+        }*/
 
         System.out.println("In end create pestacle form");
+        System.out.println("Place : " + place);
+        System.out.println("Price : " + price);
         System.out.println(this.spectacle.toString());
 
         if (error.isEmpty()) {

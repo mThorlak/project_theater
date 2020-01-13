@@ -14,7 +14,7 @@
 <%
     List<spectacle> spectacles = (List<spectacle>) request.getAttribute("spectacles");
     for (spectacle eachSpectacle : spectacles) {
-        out.println("<li> <a href=\"http://localhost:8080/project_theater_final_war_exploded/buy?spectacle=" + eachSpectacle.getId() + "\">" + eachSpectacle.toString() + "</a> </li>");
+        out.println("<li> <a href=\"http://localhost:8080/project_theater_final_war_exploded/buy?spectacle=" + eachSpectacle.getIdSpectacle() + "\">" + eachSpectacle.toString() + "</a> </li>");
     }
 %>
 </ul>

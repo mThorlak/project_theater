@@ -11,7 +11,7 @@ public class place implements Serializable {
 
     @Id
     @GeneratedValue (strategy = GenerationType.AUTO)
-    private int idPlace;
+    private Long idPlace;
     private int numPlace;
     private int price;
     private boolean state;
@@ -20,17 +20,18 @@ public class place implements Serializable {
 
     public place(){};
 
-    public place (int numPlace, int price, boolean state) {
+    public place (int numPlace, int price, boolean state, spectacle spectacle) {
         this.numPlace = numPlace;
         this.price = price;
         this.state = state;
+        this.spectacle = spectacle;
     }
 
-    public int getIdPlace() {
+    public Long getIdPlace() {
         return idPlace;
     }
 
-    public void setIdPlace(int idPlace) {
+    public void setIdPlace(Long idPlace) {
         this.idPlace = idPlace;
     }
 

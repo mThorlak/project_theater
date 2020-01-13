@@ -11,6 +11,7 @@ public interface gestionSpectacleRemote {
     public spectacle findSpectacle(int id);
     public List<spectacle> listAllSpectacle();
     public void buyTicket(spectacle spectacle);
+    public List<spectacle> listAllPlaceSpectacle (spectacle spectacle);
 /*    public List<spectacle> listSpectacleName();
     public List<spectacle> listSpectacleCategory();
     public List<spectacle> listSpectacleDate();*/
