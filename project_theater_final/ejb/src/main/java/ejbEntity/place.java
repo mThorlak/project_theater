@@ -5,7 +5,7 @@ import java.io.Serializable;
 
 @Entity
 @NamedQueries({
-        @NamedQuery(name="listPlace", query="SELECT place FROM place place"),
+        @NamedQuery(name="listPlacePriceAvailable", query="SELECT place FROM place place WHERE place.spectacle = ?1 AND place.price = ?2 AND place.state = false "),
 })
 public class place implements Serializable {
 
@@ -65,5 +65,16 @@ public class place implements Serializable {
 
     public void setSpectacle(ejbEntity.spectacle spectacle) {
         this.spectacle = spectacle;
+    }
+
+    @Override
+    public String toString() {
+        return "place{" +
+                "idPlace=" + idPlace +
+                ", numPlace=" + numPlace +
+                ", price=" + price +
+                ", state=" + state +
+                ", spectacle_id=" + spectacle +
+                '}';
     }
 }

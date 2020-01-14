@@ -12,7 +12,7 @@ import java.util.List;
 @LocalBean
 public class gestionRoomManager implements gestionRoomManagerRemote {
 
-    @PersistenceContext(unitName = "contactUnit")
+    @PersistenceContext
     private EntityManager em;
 
     @Override

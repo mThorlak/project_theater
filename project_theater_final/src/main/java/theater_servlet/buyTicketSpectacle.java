@@ -1,6 +1,7 @@
 package theater_servlet;
 
 import connect_db.connexionDB;
+import ejbEntity.place;
 import ejbEntity.spectacle;
 import ejbSession.gestionSpectacleRemote;
 import theater_forms.buyTicketForm;
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
 
 public class buyTicketSpectacle extends HttpServlet {
@@ -41,15 +43,14 @@ public class buyTicketSpectacle extends HttpServlet {
         /* Traitement des données du formulaire */
 
         try {
-            spectacle spectacle;
+            List<place> places;
             System.out.println("In doPost : " + this.spectacle);
-            gestionSpectacleRemote gestionSpectacle = new connexionDB().getConnexionManagerSpectacle();
             buyTicketForm buyTicketForm = new buyTicketForm(this.spectacle);
-            spectacle = buyTicketForm.create( request );
-            System.out.println("Out of form -> " + spectacle);
+            places = buyTicketForm.create( request );
+            System.out.println("Out of form -> " + places);
             // gestionSpectacle.buyTicket(spectacle);
             request.setAttribute( ATTRIBUT_FORM_BUY_TICKET, buyTicketForm );
-            request.setAttribute( ATTRIBUT_SPECTACLE, spectacle );
+            request.setAttribute( ATTRIBUT_SPECTACLE, this.spectacle );
 
         } catch (Exception e) {
             e.printStackTrace();
