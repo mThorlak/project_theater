@@ -7,7 +7,10 @@ import java.util.List;
 
 @Entity
 @NamedQueries({
-        @NamedQuery(name="listCategory", query="SELECT pestacle FROM spectacle pestacle"),
+        @NamedQuery(name="listSpectacle", query="SELECT spectacle FROM spectacle spectacle"),
+        @NamedQuery(name="listCategory", query="SELECT spectacle.category FROM spectacle spectacle"),
+        @NamedQuery(name="listDate", query="SELECT spectacle.date FROM spectacle spectacle"),
+        @NamedQuery(name="listSpectacleForCategory", query="SELECT spectacle FROM spectacle spectacle WHERE spectacle.category = ?1"),
 })
 public class spectacle implements Serializable {
     @Id

@@ -15,14 +15,12 @@
     <li><a href="http://localhost:8080/project_theater_final_war_exploded/listCategories"> Lister all categories </a></li>
     <li><a href="http://localhost:8080/project_theater_final_war_exploded/listDates"> Lister all dates </a></li>
 </ul>
-<ul>
-<%
-    List<spectacle> spectacles = (List<spectacle>) request.getAttribute("spectacles");
-    for (spectacle eachSpectacle : spectacles) {
-        out.println("<li> <a href=\"http://localhost:8080/project_theater_final_war_exploded/buy?spectacle=" + eachSpectacle.getIdSpectacle() + "\">" + eachSpectacle.toString() + "</a> </li>");
-    }
-%>
-</ul>
+        <%
+            List<spectacle> categories = (List<spectacle>) request.getAttribute("categories");
+            for (int i = 0; i < categories.size(); i++) {
+                out.println("<li> <a href=\"http://localhost:8080/project_theater_final_war_exploded/listSpectacleByCategory?category=" + categories.get(i) + "\">" + categories.get(i) + "</a> </li>");
+            }
+        %>
 
 </body>
 </html>

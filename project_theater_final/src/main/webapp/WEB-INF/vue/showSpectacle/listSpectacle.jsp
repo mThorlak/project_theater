@@ -11,6 +11,11 @@
 <body>
 <h1>List spectacle : </h1>
 <ul>
+    <li><a href="http://localhost:8080/project_theater_final_war_exploded/listSpectacle"> List all spectacle </a></li>
+    <li><a href="http://localhost:8080/project_theater_final_war_exploded/listCategories"> Lister all categories </a></li>
+    <li><a href="http://localhost:8080/project_theater_final_war_exploded/listDates"> Lister all dates </a></li>
+</ul>
+<ul>
 <%
     List<spectacle> spectacles = (List<spectacle>) request.getAttribute("spectacles");
     for (spectacle eachSpectacle : spectacles) {
@@ -18,5 +23,6 @@
     }
 %>
 </ul>
+
 </body>
 </html>

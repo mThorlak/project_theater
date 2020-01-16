@@ -29,7 +29,7 @@ public class gestionSpectacle implements gestionSpectacleRemote {
 
     @Override
     public List<spectacle> listAllSpectacle() {
-        return em.createNamedQuery( "listCategory" ).getResultList();
+        return em.createNamedQuery( "listSpectacle" ).getResultList();
     }
 
     @Override
@@ -38,8 +38,18 @@ public class gestionSpectacle implements gestionSpectacleRemote {
     }
 
     @Override
-    public List<spectacle> listAllPlaceSpectacle(spectacle spectacle) {
-        //return em.find(spectacle.class, places);
-        return null;
+    public List<spectacle> listAllCategory() {
+        return em.createNamedQuery( "listCategory" ).getResultList();
     }
+
+    @Override
+    public List<spectacle> listAllDate() {
+        return em.createNamedQuery( "listDate" ).getResultList();
+    }
+
+    @Override
+    public List<spectacle> listAllSpectacleForCategory(String category) {
+        return em.createNamedQuery( "listSpectacleForCategory" ).setParameter(1, category).getResultList();
+    }
+
 }
