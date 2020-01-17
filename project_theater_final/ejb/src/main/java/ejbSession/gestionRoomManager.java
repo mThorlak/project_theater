@@ -1,6 +1,8 @@
 package ejbSession;
 
+import ejbEntity.place;
 import ejbEntity.roomManager;
+import ejbEntity.spectacle;
 
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
@@ -34,5 +36,13 @@ public class gestionRoomManager implements gestionRoomManagerRemote {
         return null;
     }
 
+    @Override
+    public List<place> listAllBoughtPlaceSpectacle(spectacle spectacle) {
+        return em.createNamedQuery( "listPlaceBought" ).setParameter(1, spectacle.getIdSpectacle()).getResultList();
+    }
 
+    @Override
+    public List<place> listAllAvailablePlaceSpectacle(spectacle spectacle) {
+        return em.createNamedQuery( "listPlaceAvailable" ).setParameter(1, spectacle.getIdSpectacle()).getResultList();
+    }
 }

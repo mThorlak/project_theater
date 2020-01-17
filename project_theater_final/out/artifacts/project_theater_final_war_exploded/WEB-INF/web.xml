@@ -36,6 +36,14 @@
         <servlet-name>buyTicketSpectacle</servlet-name>
         <servlet-class>theater_servlet.buyTicketSpectacle</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>listSpectacleRoomManagerServlet</servlet-name>
+        <servlet-class>theater_servlet.listSpectacleRoomManagerServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>listSpectacleBoughtRoomManagerServlet</servlet-name>
+        <servlet-class>theater_servlet.listSpectacleBoughtRoomManagerServlet</servlet-class>
+    </servlet>
 
 
     <!-- Sevlet mapping (route) -->
@@ -70,5 +78,13 @@
     <servlet-mapping>
         <servlet-name>buyTicketSpectacle</servlet-name>
         <url-pattern>/buy</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>listSpectacleRoomManagerServlet</servlet-name>
+        <url-pattern>/listSpectacleRoomManager</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>listSpectacleBoughtRoomManagerServlet</servlet-name>
+        <url-pattern>/listPlaceBought</url-pattern>
     </servlet-mapping>
 </web-app>

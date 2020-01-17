@@ -10,6 +10,7 @@
     <li><a href="http://localhost:8080/project_theater_final_war_exploded/createPestacle">Create spectacle</a></li>
     <li><a href="http://localhost:8080/project_theater_final_war_exploded/createRoomManager">Create roomManager</a></li>
     <li><a href="http://localhost:8080/project_theater_final_war_exploded/listSpectacle">List all pestacle</a></li>
+    <li><a href="http://localhost:8080/project_theater_final_war_exploded/listSpectacleRoomManager">List all pestacle for roomManager</a></li>
   </ul>
   </body>
 </html>
