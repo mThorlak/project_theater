@@ -10,6 +10,7 @@ import javax.persistence.NamedQuery;
 
 @Entity
 @NamedQueries({
+        @NamedQuery(name = "findRoomManager", query = "SELECT roomManager FROM roomManager roomManager WHERE roomManager.name = ?1 AND roomManager.password = ?2"),
         @NamedQuery(name = "listPlaceBought", query = "SELECT place FROM place place WHERE place.state = true AND spectacle.idSpectacle = ?1"),
         @NamedQuery(name = "listPlaceAvailable", query = "SELECT place FROM place place WHERE place.state = false AND spectacle.idSpectacle = ?1"),
         @NamedQuery(name = "listPlace20Available", query = "SELECT place FROM place place WHERE place.price = 20 AND place.state = false AND spectacle.idSpectacle = ?1"),
@@ -19,7 +20,7 @@ import javax.persistence.NamedQuery;
 public class roomManager implements Serializable {
     @Id
     @GeneratedValue (strategy = GenerationType.AUTO)
-    private int id;
+    private Long idRoomManager;
     private String name;
     private String password;
 
@@ -29,12 +30,12 @@ public class roomManager implements Serializable {
         this.name = name;
         this.password = password;
     }
-    public int getId() {
-        return id;
+    public Long getId() {
+        return idRoomManager;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setId(Long id) {
+        this.idRoomManager = id;
     }
 
     public String getName() {
@@ -56,7 +57,7 @@ public class roomManager implements Serializable {
     @Override
     public String toString() {
         return "roomManager{" +
-                "id=" + id +
+                "id=" + idRoomManager +
                 ", name='" + name + '\'' +
                 ", password='" + password + '\'' +
                 '}';

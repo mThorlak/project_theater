@@ -1,10 +1,11 @@
 package theater_forms;
 
+import connect_db.connexionDB;
 import ejbEntity.roomManager;
+import ejbSession.gestionRoomManager;
 import ejbSession.gestionRoomManagerRemote;
 
 import javax.servlet.http.HttpServletRequest;
-import java.security.MessageDigest;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -13,14 +14,9 @@ public final class createRoomManagerForm {
     private static final String FIELD_NAME = "name";
     private static final String FIELD_PASSWORD = "password";
 
-    private gestionRoomManagerRemote gestionRoomManager;
 
     private String result;
     private Map<String, String> error = new HashMap<String, String>();
-
-    public createRoomManagerForm(ejbSession.gestionRoomManagerRemote gestionRoomManager) {
-        this.gestionRoomManager = gestionRoomManager;
-    }
 
     public String getResult() {
         return result;
@@ -35,6 +31,7 @@ public final class createRoomManagerForm {
         String password = getValueField(request, FIELD_PASSWORD);
 
         roomManager roomManager = new roomManager();
+        gestionRoomManagerRemote gestionRoomManager = new connexionDB().getconnexionManagerRoomManager();
 
         try {
             validateString(name);
@@ -45,21 +42,19 @@ public final class createRoomManagerForm {
 
         try {
             validateString(password);
-            // Hash sha-256
-            MessageDigest messageDigest = MessageDigest.getInstance("SHA-256");
-            messageDigest.update(password.getBytes());
-            password = new String(messageDigest.digest());
             roomManager.setPassword(password);
         } catch (Exception e) {
             setError(FIELD_PASSWORD, e.getMessage());
         }
 
         if (error.isEmpty()) {
+            System.out.println(roomManager);
             gestionRoomManager.addRoomManager(roomManager);
             result = "Succès de la création du room manager.";
         } else {
             result = "Échec de la création du room manager.";
         }
+
 
         return roomManager;
     }

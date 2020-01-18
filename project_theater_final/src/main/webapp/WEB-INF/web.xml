@@ -61,7 +61,7 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>connectRoomManager</servlet-name>
-        <url-pattern>/connexionRoomManager</url-pattern>
+        <url-pattern>/connectRoomManager</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>listSpectacleServlet</servlet-name>

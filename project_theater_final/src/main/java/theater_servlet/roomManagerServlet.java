@@ -25,8 +25,7 @@ public class roomManagerServlet extends HttpServlet {
         /* Traitement des données du formulaire */
 
         try {
-            gestionRoomManagerRemote gestionRoomManager = new connexionDB().getconnexionManagerRoomManager();
-            createRoomManagerForm roomManagerForm = new createRoomManagerForm(gestionRoomManager);
+            createRoomManagerForm roomManagerForm = new createRoomManagerForm();
             roomManager roomManager = null;
             /* Appel au traitement et à la validation de la requête, et récupération du bean en résultant */
             roomManager = roomManagerForm.create( request );

@@ -1,8 +1,9 @@
 package theater_servlet;
 
-import theater_beans.roomManager;
-import theater_forms.connexionRoomManager;
+import ejbEntity.roomManager;
+import theater_forms.connexionRoomManagerForm;
 
+import javax.naming.NamingException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -14,7 +15,7 @@ public class connectRoomManager extends HttpServlet {
     public static final String ATT_USER         = "user";
     public static final String ATT_FORM         = "formConnexionRoomManager";
     public static final String ATT_USER_SESSION = "roomManager";
-    public static final String VUE              = "/WEB-INF/vue/formConnexionRoomManager.jsp";
+    public static final String VUE              = "/WEB-INF/vue/roomManager/formConnexionRoomManager.jsp";
 
     public void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
         /* Affichage de la page de connexion */
@@ -23,10 +24,15 @@ public class connectRoomManager extends HttpServlet {
 
     public void doPost( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
         /* Préparation de l'objet formulaire */
-        connexionRoomManager formConnexionRoomManager = new connexionRoomManager();
+        connexionRoomManagerForm formConnexionRoomManager = new connexionRoomManagerForm();
 
         /* Traitement de la requête et récupération du bean en résultant */
-        roomManager roomManager = formConnexionRoomManager.userConnect( request );
+        roomManager roomManager = null;
+        try {
+            roomManager = formConnexionRoomManager.connectRoomManager( request );
+        } catch (NamingException e) {
+            e.printStackTrace();
+        }
 
         /* Récupération de la session depuis la requête */
         HttpSession session = request.getSession();
@@ -35,7 +41,7 @@ public class connectRoomManager extends HttpServlet {
          * Si aucune erreur de validation n'a eu lieu, alors ajout du bean
          * Utilisateur à la session, sinon suppression du bean de la session.
          */
-        if ( formConnexionRoomManager.getError().isEmpty() ) {
+        if ( formConnexionRoomManager.getErrors().isEmpty() ) {
             session.setAttribute( ATT_USER_SESSION, roomManager );
         } else {
             session.setAttribute( ATT_USER_SESSION, null );
@@ -44,6 +50,7 @@ public class connectRoomManager extends HttpServlet {
         /* Stockage du formulaire et du bean dans l'objet request */
         request.setAttribute( ATT_FORM, formConnexionRoomManager );
         request.setAttribute( ATT_USER, roomManager );
+        System.out.println(roomManager);
 
         this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );
     }
