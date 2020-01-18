@@ -4,6 +4,7 @@ import ejbEntity.roomManager;
 import ejbSession.gestionRoomManagerRemote;
 
 import javax.servlet.http.HttpServletRequest;
+import java.security.MessageDigest;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -31,36 +32,35 @@ public final class createRoomManagerForm {
 
     public roomManager create(HttpServletRequest request) throws Exception {
         String name = getValueField(request, FIELD_NAME);
-        System.out.println(name);
         String password = getValueField(request, FIELD_PASSWORD);
-        System.out.println(password);
 
         roomManager roomManager = new roomManager();
 
         try {
             validateString(name);
+            roomManager.setName(name);
         } catch (Exception e) {
             setError(FIELD_NAME, e.getMessage());
         }
-        roomManager.setName(name);
 
         try {
             validateString(password);
+            // Hash sha-256
+            MessageDigest messageDigest = MessageDigest.getInstance("SHA-256");
+            messageDigest.update(password.getBytes());
+            password = new String(messageDigest.digest());
+            roomManager.setPassword(password);
         } catch (Exception e) {
             setError(FIELD_PASSWORD, e.getMessage());
         }
-        roomManager.setPassword(password);
 
         if (error.isEmpty()) {
+            gestionRoomManager.addRoomManager(roomManager);
             result = "Succès de la création du room manager.";
         } else {
             result = "Échec de la création du room manager.";
         }
 
-        System.out.println("End createRoomManagerForm");
-
-        // Envoi du room manager à l'ejb session
-        gestionRoomManager.addRoomManager(roomManager);
         return roomManager;
     }
 

@@ -18,12 +18,8 @@ public class gestionRoomManager implements gestionRoomManagerRemote {
     private EntityManager em;
 
     @Override
-    public roomManager addRoomManager(roomManager roomManager) throws Exception {
-        System.out.println("In gestion room manager" + roomManager.toString());
-        roomManager test2 = new roomManager("michel", "jkedzlk");
-        System.out.println("In gestion room manager" + test2.toString());
+    public void addRoomManager(roomManager roomManager) throws Exception {
         em.persist(roomManager);
-        return roomManager;
     }
 
     @Override
