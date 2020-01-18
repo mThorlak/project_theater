@@ -19,6 +19,7 @@ public class connectRoomManager extends HttpServlet {
 
     public void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
         /* Affichage de la page de connexion */
+        request.setAttribute(ATT_FORM, null);
         this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );
     }
 
@@ -43,6 +44,7 @@ public class connectRoomManager extends HttpServlet {
          */
         if (roomManager != null) {
             System.out.println("roomManager found");
+            session.setAttribute( ATT_USER_SESSION, roomManager);
         } else {
             System.out.println("Room manager not found");
             session.setAttribute( ATT_USER_SESSION, null );

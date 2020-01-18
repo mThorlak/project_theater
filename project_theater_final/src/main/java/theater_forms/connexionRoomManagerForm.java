@@ -61,6 +61,7 @@ public class connexionRoomManagerForm {
             result = "Connexion success.";
         } else {
             result = "Connexion error, check again your name and password";
+            return null;
         }
 
         return roomManager;
