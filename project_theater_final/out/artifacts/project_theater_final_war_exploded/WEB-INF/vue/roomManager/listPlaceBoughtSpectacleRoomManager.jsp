@@ -28,7 +28,7 @@
     <%
         List<place> placesBought = (List<place>) request.getAttribute("placesBought");
         for (place eachPlace : placesBought) {
-            out.println("<li>N° place :" + eachPlace.getNumPlace() + ", price : " + eachPlace.getPrice() +"</li>");
+            out.println("<li>Number place :" + eachPlace.getNumPlace() + ", price : " + eachPlace.getPrice() +"</li>");
         }
     %>
 </ul>
@@ -37,7 +37,7 @@
     <%
         List<place> placesAvailable = (List<place>) request.getAttribute("placesAvailable");
         for (place eachPlace : placesAvailable) {
-            out.println("<li>N° place :" + eachPlace.getNumPlace() + ", price : " + eachPlace.getPrice() +"</li>");
+            out.println("<li>Number place : " + eachPlace.getNumPlace() + ", price : " + eachPlace.getPrice() +"</li>");
         }
     %>
 </ul>

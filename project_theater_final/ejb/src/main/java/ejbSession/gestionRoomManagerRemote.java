@@ -14,4 +14,7 @@ public interface gestionRoomManagerRemote {
     public List<roomManager> listAllRoomManager();
     public List<place> listAllBoughtPlaceSpectacle(spectacle spectacle);
     public List<place> listAllAvailablePlaceSpectacle(spectacle spectacle);
+    public List<place> listAllAvailablePlace20Spectacle(spectacle spectacle);
+    public List<place> listAllAvailablePlace40Spectacle(spectacle spectacle);
+    public List<place> listAllAvailablePlace55Spectacle(spectacle spectacle);
 }

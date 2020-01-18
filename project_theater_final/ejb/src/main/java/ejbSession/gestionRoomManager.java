@@ -45,4 +45,19 @@ public class gestionRoomManager implements gestionRoomManagerRemote {
     public List<place> listAllAvailablePlaceSpectacle(spectacle spectacle) {
         return em.createNamedQuery( "listPlaceAvailable" ).setParameter(1, spectacle.getIdSpectacle()).getResultList();
     }
+
+    @Override
+    public List<place> listAllAvailablePlace20Spectacle(spectacle spectacle) {
+        return em.createNamedQuery( "listPlace20Available" ).setParameter(1, spectacle.getIdSpectacle()).getResultList();
+    }
+
+    @Override
+    public List<place> listAllAvailablePlace40Spectacle(spectacle spectacle) {
+        return em.createNamedQuery( "listPlace40Available" ).setParameter(1, spectacle.getIdSpectacle()).getResultList();
+    }
+
+    @Override
+    public List<place> listAllAvailablePlace55Spectacle(spectacle spectacle) {
+        return em.createNamedQuery( "listPlace55Available" ).setParameter(1, spectacle.getIdSpectacle()).getResultList();
+    }
 }

@@ -12,6 +12,9 @@ import javax.persistence.NamedQuery;
 @NamedQueries({
         @NamedQuery(name = "listPlaceBought", query = "SELECT place FROM place place WHERE place.state = true AND spectacle.idSpectacle = ?1"),
         @NamedQuery(name = "listPlaceAvailable", query = "SELECT place FROM place place WHERE place.state = false AND spectacle.idSpectacle = ?1"),
+        @NamedQuery(name = "listPlace20Available", query = "SELECT place FROM place place WHERE place.price = 20 AND place.state = false AND spectacle.idSpectacle = ?1"),
+        @NamedQuery(name = "listPlace40Available", query = "SELECT place FROM place place WHERE place.price = 40 AND place.state = false AND spectacle.idSpectacle = ?1"),
+        @NamedQuery(name = "listPlace55Available", query = "SELECT place FROM place place WHERE place.price = 55 AND place.state = false AND spectacle.idSpectacle = ?1"),
         })
 public class roomManager implements Serializable {
     @Id

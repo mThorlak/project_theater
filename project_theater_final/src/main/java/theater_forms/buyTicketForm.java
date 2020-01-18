@@ -7,10 +7,7 @@ import ejbSession.gestionPlaceRemote;
 
 import javax.naming.NamingException;
 import javax.servlet.http.HttpServletRequest;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 
 public final class buyTicketForm {
 
@@ -34,19 +31,22 @@ public final class buyTicketForm {
         return error;
     }
 
-    public List<place> create(HttpServletRequest request) throws NamingException {
-        int nbPlace = Integer.parseInt(Objects.requireNonNull(getValueField(request, FIELD_PLACE)));
+    public void create(HttpServletRequest request) throws NamingException {
+
+        int nbPlace = 0;
         int price = Integer.parseInt(Objects.requireNonNull(getValueField(request, FIELD_PRICE)));
+
+        System.out.println("HERE");
+        if (Objects.equals(getValueField(request, FIELD_PLACE), null)) {
+            setError(FIELD_PLACE, "Le nombre de place acheté ne peut pas être vide ou égal à 0");
+            System.out.println("OK");
+        }
+        else
+            nbPlace = Integer.parseInt(Objects.requireNonNull(getValueField(request, FIELD_PLACE)));
+
         List<place> places;
         spectacle spectacle = this.spectacle;
         gestionPlaceRemote gestionPlace = new connexionDB().getConnexionManagerPlace();
-
-/*        try {
-            validateNbTicketBuying(place, spectacle.getPlace());
-            spectacle.setPlace(spectacle.getPlace() - place);
-        } catch (Exception e) {
-            setError(FIELD_PLACE, e.getMessage());
-        }*/
 
         places = gestionPlace.findPlaceAvailable(price, spectacle);
 
@@ -68,14 +68,8 @@ public final class buyTicketForm {
         if (error.isEmpty()) {
             result = "Achat de place(s) enregistré";
         } else {
-            result = "Vous ne pouvez pas acheter plus de place que disponible";
+            result = "Achat impossible, vérifiez les informations entrées";
         }
-        return places;
-    }
-
-    private void validateNbTicketBuying(int placeToBuy, int placeAvailable) throws Exception {
-        if (placeToBuy > placeAvailable)
-            throw new Exception("Vous ne pouvez pas acheter plus de place que disponible");
     }
 
     /*
@@ -97,6 +91,10 @@ public final class buyTicketForm {
         } else {
             return valeur.trim();
         }
+    }
+
+    private boolean isNullOrZero(Integer i){
+        return 0 == ( i == null ? 0 : i);
     }
 }
 
