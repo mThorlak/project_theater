@@ -42,7 +42,7 @@
     </servlet>
     <servlet>
         <servlet-name>listSpectacleBoughtRoomManagerServlet</servlet-name>
-        <servlet-class>theater_servlet.listSpectacleBoughtRoomManagerServlet</servlet-class>
+        <servlet-class>theater_servlet.listPlaceBoughtRoomManagerServlet</servlet-class>
     </servlet>
 
 

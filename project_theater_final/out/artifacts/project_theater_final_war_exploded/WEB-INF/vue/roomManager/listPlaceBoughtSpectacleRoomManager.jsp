@@ -9,17 +9,35 @@
     <link type="text/css" rel="stylesheet" href="" />
 </head>
 <body>
-<h1>List spectacle : </h1>
 <%--<ul>
     <li><a href="http://localhost:8080/project_theater_final_war_exploded/listSpectacle"> List all spectacle </a></li>
     <li><a href="http://localhost:8080/project_theater_final_war_exploded/listCategories"> Lister all categories </a></li>
     <li><a href="http://localhost:8080/project_theater_final_war_exploded/listDates"> Lister all dates </a></li>
 </ul>--%>
+<h1>Overview :</h1>
+<%
+    int nbPlaceBought = (int) request.getAttribute("nbPlaceBought");
+    int nbPlaceAvailable = (int) request.getAttribute("nbPlaceAvailable");
+    int totalReservation = (int) request.getAttribute("totalReservation");
+    out.println("Number of place bought : " + nbPlaceBought);
+    out.println("- Number of place available : " + nbPlaceAvailable);
+    out.println("- CA actual for the spectacle : " + totalReservation + " euros");
+%>
+<h1>Places bought :</h1>
 <ul>
     <%
-        List<place> places = (List<place>) request.getAttribute("places");
-        for (place eachPlace : places) {
-            out.println("<li>" + eachPlace.toString() + " </li>");
+        List<place> placesBought = (List<place>) request.getAttribute("placesBought");
+        for (place eachPlace : placesBought) {
+            out.println("<li>N° place :" + eachPlace.getNumPlace() + ", price : " + eachPlace.getPrice() +"</li>");
+        }
+    %>
+</ul>
+<h1>Places available :</h1>
+<ul>
+    <%
+        List<place> placesAvailable = (List<place>) request.getAttribute("placesAvailable");
+        for (place eachPlace : placesAvailable) {
+            out.println("<li>N° place :" + eachPlace.getNumPlace() + ", price : " + eachPlace.getPrice() +"</li>");
         }
     %>
 </ul>
