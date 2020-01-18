@@ -6,6 +6,6 @@
     <title>Restrict access</title>
 </head>
 <body>
-<p>Vous n'avez pas accès à l'espace restreint : vous devez vous <a href="roomManager/formConnexionRoomManager">connecter</a> d'abord. </p>
+<p>Vous n'avez pas accès à l'espace restreint : vous devez vous <a href="connectRoomManager">connecter</a> d'abord. </p>
 </body>
 </html>

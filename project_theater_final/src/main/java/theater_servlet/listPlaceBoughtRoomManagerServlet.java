@@ -10,18 +10,23 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
 public class listPlaceBoughtRoomManagerServlet extends HttpServlet {
     public static final String ATT_MESSAGES = "messages";
     public static final String VUE = "/WEB-INF/vue/roomManager/listPlaceBoughtSpectacleRoomManager.jsp";
+    public static final String VUE_PUBLIC = "/WEB-INF/vue/restrictAccess.jsp";
 
     List<spectacle> categories;
 
     public void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
 
         try {
+            HttpSession session = request.getSession();
+            if (session.getAttribute("roomManager") == null)
+                this.getServletContext().getRequestDispatcher( VUE_PUBLIC ).forward( request, response );
             int nbPlaceBought;
             int nbPlaceAvailable;
             int totalReservation = 0;
