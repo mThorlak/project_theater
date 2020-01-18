@@ -39,7 +39,7 @@ public class connexionRoomManagerForm {
             validateString( name );
             roomManager.setName( name );
         } catch ( Exception e ) {
-            setErreur( FIELD_NAME, e.getMessage() );
+            setErrors( FIELD_NAME, e.getMessage() );
         }
 
         /* Validation du champ mot de passe. */
@@ -47,20 +47,20 @@ public class connexionRoomManagerForm {
             validateString( password );
             roomManager.setPassword( password );
         } catch ( Exception e ) {
-            setErreur( FIELD_PASSWORD, e.getMessage() );
-        }
-
-        /* Initialisation du résultat global de la validation. */
-        if ( errors.isEmpty() ) {
-            result = "Succès de la connexion.";
-        } else {
-            result = "Échec de la connexion.";
+            setErrors( FIELD_PASSWORD, e.getMessage() );
         }
 
         try {
             roomManager = gestionRoomManager.findRoomManager(roomManager);
         } catch (Exception e) {
-            e.printStackTrace();
+            setErrors(FIELD_NAME, e.getMessage());
+        }
+
+        /* Initialisation du résultat global de la validation. */
+        if ( errors.isEmpty() ) {
+            result = "Connexion success.";
+        } else {
+            result = "Connexion error, check again your name and password";
         }
 
         return roomManager;
@@ -74,7 +74,7 @@ public class connexionRoomManagerForm {
     /*
      * Ajoute un message correspondant au champ spécifié à la map des erreurs.
      */
-    private void setErreur( String champ, String message ) {
+    private void setErrors( String champ, String message ) {
         errors.put( champ, message );
     }
 

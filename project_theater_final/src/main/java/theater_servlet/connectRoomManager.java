@@ -31,7 +31,7 @@ public class connectRoomManager extends HttpServlet {
         try {
             roomManager = formConnexionRoomManager.connectRoomManager( request );
         } catch (NamingException e) {
-            e.printStackTrace();
+            System.err.println(e.toString());
         }
 
         /* Récupération de la session depuis la requête */
@@ -41,16 +41,16 @@ public class connectRoomManager extends HttpServlet {
          * Si aucune erreur de validation n'a eu lieu, alors ajout du bean
          * Utilisateur à la session, sinon suppression du bean de la session.
          */
-        if ( formConnexionRoomManager.getErrors().isEmpty() ) {
-            session.setAttribute( ATT_USER_SESSION, roomManager );
+        if (roomManager != null) {
+            System.out.println("roomManager found");
         } else {
+            System.out.println("Room manager not found");
             session.setAttribute( ATT_USER_SESSION, null );
         }
 
         /* Stockage du formulaire et du bean dans l'objet request */
         request.setAttribute( ATT_FORM, formConnexionRoomManager );
         request.setAttribute( ATT_USER, roomManager );
-        System.out.println(roomManager);
 
         this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );
     }

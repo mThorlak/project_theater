@@ -25,7 +25,7 @@
         <input type="submit" value="Connexion" class="sansLabel" />
         <br />
 
-      <%--  <p class="${empty formConnexionRoomManager.getErrors ? 'succes' : 'error'}">${formConnexionRoomManager.error}</p>--%>
+      <p class="${empty formConnexionRoomManager.errors ? 'succes' : 'error'}">${formConnexionRoomManager.result}</p>
     </fieldset>
 </form>
 </body>

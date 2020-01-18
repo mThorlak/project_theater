@@ -55,9 +55,6 @@ public final class createPestacleForm {
             result = "Échec de la création du pestacle.";
         }
 
-        System.out.println("In end create pestacle form");
-        System.out.println(pestacle.toString());
-
         return pestacle;
     }
 
