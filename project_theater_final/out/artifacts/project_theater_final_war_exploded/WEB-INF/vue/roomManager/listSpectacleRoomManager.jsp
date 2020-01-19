@@ -24,10 +24,5 @@
     %>
 </ul>
 
-<c:if test="${!empty sessionScope.roomManager}">
-    <%-- Si l'utilisateur existe en session, alors on affiche son adresse email. --%>
-    <p class="succes">You're connected with the name : ${sessionScope.roomManager.name}</p>
-</c:if>
-
 </body>
 </html>

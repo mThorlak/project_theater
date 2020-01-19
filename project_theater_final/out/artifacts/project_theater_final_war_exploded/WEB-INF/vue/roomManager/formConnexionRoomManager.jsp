@@ -39,6 +39,7 @@
                 if (formConnexionRoomManager != null)
                     if (formConnexionRoomManager.getErrors().isEmpty()) {
                         out.println("<li><a href=\"http://localhost:8080/project_theater_final_war_exploded/listSpectacleRoomManager\">List all pestacle, Room Manager tools</a></li>");
+                        out.println("<li><a href=\"http://localhost:8080/project_theater_final_war_exploded/createPestacle\">Create spectacle</a></li>");
                     }
             } catch (IOException e) {
                 e.printStackTrace();
