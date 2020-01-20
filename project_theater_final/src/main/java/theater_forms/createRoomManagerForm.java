@@ -2,7 +2,6 @@ package theater_forms;
 
 import connect_db.connexionDB;
 import ejbEntity.roomManager;
-import ejbSession.gestionRoomManager;
 import ejbSession.gestionRoomManagerRemote;
 
 import javax.servlet.http.HttpServletRequest;
@@ -53,13 +52,17 @@ public final class createRoomManagerForm {
             setError(FIELD_PASSWORD, e.getMessage());
         }
 
-        if (error.isEmpty()) {
-            gestionRoomManager.addRoomManager(roomManager);
-            result = "Succès de la création du room manager.";
-        } else {
-            result = "Échec de la création du room manager.";
+        try {
+            roomManager roomManagerExist = gestionRoomManager.findRoomManagerByName(roomManager);
+            result = "Fail - This name already existing";
+        } catch (Exception e) {
+            if (error.isEmpty()) {
+                gestionRoomManager.addRoomManager(roomManager);
+                result = "Success for creating room manager";
+            } else {
+                result = "Fail to create room manager";
+            }
         }
-
 
         return roomManager;
     }

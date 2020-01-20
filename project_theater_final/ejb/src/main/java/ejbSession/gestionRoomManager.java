@@ -23,6 +23,11 @@ public class gestionRoomManager implements gestionRoomManagerRemote {
     }
 
     @Override
+    public roomManager findRoomManagerByName(roomManager roomManager) {
+        return (ejbEntity.roomManager) em.createNamedQuery( "findRoomManagerByName" ).setParameter(1, roomManager.getName()).getSingleResult();
+    }
+
+    @Override
     public roomManager findRoomManager(roomManager roomManager) {
         return (ejbEntity.roomManager) em.createNamedQuery( "findRoomManager" ).setParameter(1, roomManager.getName()).setParameter(2, roomManager.getPassword()).getSingleResult();
     }

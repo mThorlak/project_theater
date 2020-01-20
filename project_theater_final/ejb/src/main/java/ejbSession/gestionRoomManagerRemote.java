@@ -10,6 +10,7 @@ import java.util.List;
 @Remote
 public interface gestionRoomManagerRemote {
     public void addRoomManager(roomManager roomManager) throws Exception;
+    public roomManager findRoomManagerByName(roomManager roomManager);
     public roomManager findRoomManager(roomManager roomManager);
     public List<roomManager> listAllRoomManager();
     public List<place> listAllBoughtPlaceSpectacle(spectacle spectacle);

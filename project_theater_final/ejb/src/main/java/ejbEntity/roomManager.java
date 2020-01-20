@@ -10,6 +10,7 @@ import javax.persistence.NamedQuery;
 
 @Entity
 @NamedQueries({
+        @NamedQuery(name = "findRoomManagerByName", query = "SELECT roomManager FROM roomManager roomManager WHERE roomManager.name = ?1 "),
         @NamedQuery(name = "findRoomManager", query = "SELECT roomManager FROM roomManager roomManager WHERE roomManager.name = ?1 AND roomManager.password = ?2"),
         @NamedQuery(name = "listPlaceBought", query = "SELECT place FROM place place WHERE place.state = true AND spectacle.idSpectacle = ?1"),
         @NamedQuery(name = "listPlaceAvailable", query = "SELECT place FROM place place WHERE place.state = false AND spectacle.idSpectacle = ?1"),
