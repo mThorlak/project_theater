@@ -24,7 +24,7 @@
     int totalReservation = (int) request.getAttribute("totalReservation");
     out.println("Number of place bought : " + nbPlaceBought);
     out.println("</br>Number of place available : " + nbPlaceAvailable);
-    out.println("</br>CA actual for the spectacle : " + totalReservation + " euros");
+    out.println("</br>Actual turnover for the spectacle : " + totalReservation + " euros");
 %>
 <h2>Places bought :</h2>
 <ol class="rectangle-list">
