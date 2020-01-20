@@ -4,6 +4,7 @@ import connect_db.connexionDB;
 import ejbEntity.roomManager;
 import ejbSession.gestionRoomManagerRemote;
 
+import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.util.HashMap;
 import java.util.Map;
@@ -45,7 +46,10 @@ public class connexionRoomManagerForm {
         /* Validation du champ mot de passe. */
         try {
             validateString( password );
-            roomManager.setPassword( password );
+            MessageDigest messageDigest = MessageDigest.getInstance("SHA-256");
+            messageDigest.update(password.getBytes(StandardCharsets.UTF_8));
+            password = new String(messageDigest.digest());
+            roomManager.setPassword(password);
         } catch ( Exception e ) {
             setErrors( FIELD_PASSWORD, e.getMessage() );
         }

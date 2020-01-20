@@ -6,6 +6,8 @@ import ejbSession.gestionRoomManager;
 import ejbSession.gestionRoomManagerRemote;
 
 import javax.servlet.http.HttpServletRequest;
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -42,6 +44,10 @@ public final class createRoomManagerForm {
 
         try {
             validateString(password);
+            // Hash sha-256
+            MessageDigest messageDigest = MessageDigest.getInstance("SHA-256");
+            messageDigest.update(password.getBytes(StandardCharsets.UTF_8));
+            password = new String(messageDigest.digest());
             roomManager.setPassword(password);
         } catch (Exception e) {
             setError(FIELD_PASSWORD, e.getMessage());
