@@ -33,11 +33,8 @@ public class createPestacle extends HttpServlet {
         try {
             gestionSpectacleRemote gestionSpectacle = new connexionDB().getConnexionManagerSpectacle();
             createPestacleForm pestacleForm = new createPestacleForm(gestionSpectacle);
-            spectacle spectacle = null;
             /* Appel au traitement et à la validation de la requête, et récupération du bean en résultant */
-            spectacle = pestacleForm.create( request );
-            System.out.println("End form, try to add in bd : ");
-            gestionSpectacle.addSpectacle(spectacle);
+            spectacle spectacle = pestacleForm.create( request );
 
             /* Stockage du formulaire et du bean dans l'objet request */
             request.setAttribute( ATTRIBUT_FORM_PESTACLE, pestacleForm );

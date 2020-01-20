@@ -10,6 +10,13 @@
     <link type="text/css" rel="stylesheet" href="CSS-Directory/listStyle.css" />
 </head>
 <body>
+<nav class="menu-list">
+    <ul class="menu-list">
+        <li class="menu-list"><a href="http://localhost:8080/project_theater_final_war_exploded/">Homepage</a></li>
+        <li class="menu-list, active"><a href="http://localhost:8080/project_theater_final_war_exploded/listSpectacleRoomManager">List all spectacle, room manager vue</a></li>
+        <li class="menu-list"><a href="http://localhost:8080/project_theater_final_war_exploded/createPestacle">Create Spectacle</a></li>
+    </ul>
+</nav>
 <h1>List spectacle : </h1>
 <ol class="rounded-list">
     <%

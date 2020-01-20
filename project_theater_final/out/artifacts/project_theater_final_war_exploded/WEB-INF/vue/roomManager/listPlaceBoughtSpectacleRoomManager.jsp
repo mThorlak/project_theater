@@ -6,40 +6,43 @@
 <head>
     <meta charset="utf-8" />
     <title>List spectacle</title>
-    <link type="text/css" rel="stylesheet" href="" />
+    <link type="text/css" rel="stylesheet" href="CSS-Directory/menu.css" />
+    <link type="text/css" rel="stylesheet" href="CSS-Directory/listStyle.css" />
 </head>
 <body>
-<%--<ul>
-    <li><a href="http://localhost:8080/project_theater_final_war_exploded/listSpectacle"> List all spectacle </a></li>
-    <li><a href="http://localhost:8080/project_theater_final_war_exploded/listCategories"> Lister all categories </a></li>
-    <li><a href="http://localhost:8080/project_theater_final_war_exploded/listDates"> Lister all dates </a></li>
-</ul>--%>
-<h1>Overview :</h1>
+<nav class="menu-list">
+    <ul class="menu-list">
+        <li class="menu-list"><a href="http://localhost:8080/project_theater_final_war_exploded/">Homepage</a></li>
+        <li class="menu-list, active"><a href="http://localhost:8080/project_theater_final_war_exploded/listSpectacleRoomManager">List all spectacle, room manager vue</a></li>
+        <li class="menu-list"><a href="http://localhost:8080/project_theater_final_war_exploded/createPestacle">Create Spectacle</a></li>
+    </ul>
+</nav>
+<h2>Overview :</h2>
 <%
     int nbPlaceBought = (int) request.getAttribute("nbPlaceBought");
     int nbPlaceAvailable = (int) request.getAttribute("nbPlaceAvailable");
     int totalReservation = (int) request.getAttribute("totalReservation");
     out.println("Number of place bought : " + nbPlaceBought);
-    out.println("- Number of place available : " + nbPlaceAvailable);
-    out.println("- CA actual for the spectacle : " + totalReservation + " euros");
+    out.println("</br>Number of place available : " + nbPlaceAvailable);
+    out.println("</br>CA actual for the spectacle : " + totalReservation + " euros");
 %>
-<h1>Places bought :</h1>
-<ul>
+<h2>Places bought :</h2>
+<ol class="rectangle-list">
     <%
         List<place> placesBought = (List<place>) request.getAttribute("placesBought");
         for (place eachPlace : placesBought) {
-            out.println("<li>Number place :" + eachPlace.getNumPlace() + ", price : " + eachPlace.getPrice() +"</li>");
+            out.println("<li> <a href=\" \"> Number place : " + eachPlace.getNumPlace() + ", price : " + eachPlace.getPrice() +" </a></li>");
         }
     %>
-</ul>
-<h1>Places available :</h1>
-<ul>
+</ol>
+<h2>Places available :</h2>
+<ol class="rounded-list">
     <%
         List<place> placesAvailable = (List<place>) request.getAttribute("placesAvailable");
         for (place eachPlace : placesAvailable) {
-            out.println("<li>Number place : " + eachPlace.getNumPlace() + ", price : " + eachPlace.getPrice() +"</li>");
+            out.println("<li> <a href=\" \"> Number place : " + eachPlace.getNumPlace() + ", price : " + eachPlace.getPrice() +" </a></li>");
         }
     %>
-</ul>
+</ol>
 </body>
 </html>

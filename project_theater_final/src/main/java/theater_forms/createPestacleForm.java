@@ -50,9 +50,10 @@ public final class createPestacleForm {
         spectacle pestacle = new spectacle(name, category, date);
 
         if (error.isEmpty()) {
-            result = "Succès de la création du pestacle.";
+            result = "Success to create spectacle.";
+            gestionSpectacle.addSpectacle(pestacle);
         } else {
-            result = "Échec de la création du pestacle.";
+            result = "Fail to create spectacle.";
         }
 
         return pestacle;
