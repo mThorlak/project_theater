@@ -24,7 +24,7 @@
     int nbPlacePrice55 = (int) request.getAttribute("nbPlacePrice55");
     int nbPlacePrice40 = (int) request.getAttribute("nbPlacePrice40");
     int nbPlacePrice20 = (int) request.getAttribute("nbPlacePrice20");
-    out.println("Name : " + spectacle.getName() + ", category : " + spectacle.getCategory() + ", date :" + spectacle.getDate());
+    out.println("Name : " + spectacle.getName() + "</br>category : " + spectacle.getCategory() + "</br>date :" + spectacle.getDate());
     out.println("<br/>Number places available : " + nbPlaceAvailable);
 %>
 <h1>Table of place available</h1>
