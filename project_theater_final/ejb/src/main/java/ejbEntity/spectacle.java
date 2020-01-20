@@ -26,7 +26,6 @@ public class spectacle implements Serializable {
     public spectacle(){};
 
     public spectacle (String name, String category, String date) {
-        System.out.println("In spectacle constructor");
         this.name = name;
         this.category = category;
         this.date = date;

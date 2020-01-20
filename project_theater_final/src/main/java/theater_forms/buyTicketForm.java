@@ -36,10 +36,8 @@ public final class buyTicketForm {
         int nbPlace = 0;
         int price = Integer.parseInt(Objects.requireNonNull(getValueField(request, FIELD_PRICE)));
 
-        System.out.println("HERE");
         if (Objects.equals(getValueField(request, FIELD_PLACE), null)) {
             setError(FIELD_PLACE, "Le nombre de place acheté ne peut pas être vide ou égal à 0");
-            System.out.println("OK");
         }
         else
             nbPlace = Integer.parseInt(Objects.requireNonNull(getValueField(request, FIELD_PLACE)));

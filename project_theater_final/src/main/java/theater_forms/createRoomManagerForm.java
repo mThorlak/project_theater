@@ -48,7 +48,6 @@ public final class createRoomManagerForm {
         }
 
         if (error.isEmpty()) {
-            System.out.println(roomManager);
             gestionRoomManager.addRoomManager(roomManager);
             result = "Succès de la création du room manager.";
         } else {

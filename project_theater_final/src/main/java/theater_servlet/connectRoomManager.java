@@ -43,10 +43,8 @@ public class connectRoomManager extends HttpServlet {
          * Utilisateur à la session, sinon suppression du bean de la session.
          */
         if (roomManager != null) {
-            System.out.println("roomManager found");
             session.setAttribute( ATT_USER_SESSION, roomManager);
         } else {
-            System.out.println("Room manager not found");
             session.setAttribute( ATT_USER_SESSION, null );
         }
 

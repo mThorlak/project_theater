@@ -28,7 +28,6 @@ public class gestionPlace implements gestionPlaceRemote {
 
     @Override
     public void buyPlace(place place) {
-        System.out.println("buyPlace -> " + place);
         em.merge(place);
     }
 }

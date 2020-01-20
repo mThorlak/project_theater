@@ -34,13 +34,10 @@ public class connexionDB {
     public static gestionRoomManagerRemote lookupRemoteStatelessGestionRoomManager() throws NamingException {
         gestionRoomManagerRemote fct = null;
         try{
-            // System.out.println("dans le lookup");
             Properties jndiProps = new Properties();
             jndiProps.setProperty(Context.URL_PKG_PREFIXES, "org.jboss.ejb.client.naming");
             InitialContext ctx= new InitialContext(jndiProps);
-            // System.out.println("dans le lookup: ");
             fct = (gestionRoomManagerRemote) ctx.lookup("ejb:/project_theater_final_war_exploded/gestionRoomManager!ejbSession.gestionRoomManagerRemote");
-            // System.out.println("voici la fct:" );
 
         }catch(Exception ignored){
 
@@ -50,15 +47,11 @@ public class connexionDB {
 
     public static gestionSpectacleRemote lookupRemoteStatelessGestionSpectacle() throws NamingException {
         gestionSpectacleRemote fct = null;
-        System.out.println("dans le lookup0");
         try{
-            // System.out.println("dans le lookup1");
             Properties jndiProps=new Properties();
             jndiProps.setProperty(Context.URL_PKG_PREFIXES, "org.jboss.ejb.client.naming");
             InitialContext ctx= new InitialContext(jndiProps);
-            // System.out.println("dans le lookup: ");
             fct=(gestionSpectacleRemote) ctx.lookup("ejb:/project_theater_final_war_exploded/gestionSpectacle!ejbSession.gestionSpectacleRemote");
-            // System.out.println("voici la fct:" );
 
         }catch(Exception ignored){
 
@@ -68,15 +61,11 @@ public class connexionDB {
 
     public static gestionPlaceRemote lookupRemoteStatelessGestionPlace() throws NamingException {
         gestionPlaceRemote fct = null;
-        System.out.println("dans le lookup0");
         try{
-            // System.out.println("dans le lookup1");
             Properties jndiProps=new Properties();
             jndiProps.setProperty(Context.URL_PKG_PREFIXES, "org.jboss.ejb.client.naming");
             InitialContext ctx= new InitialContext(jndiProps);
-            // System.out.println("dans le lookup: ");
             fct=(gestionPlaceRemote) ctx.lookup("ejb:/project_theater_final_war_exploded/gestionPlace!ejbSession.gestionPlaceRemote");
-            // System.out.println("voici la fct:" + fct);
 
         }catch(Exception ignored){
 

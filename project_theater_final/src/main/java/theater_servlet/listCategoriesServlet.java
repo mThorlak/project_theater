@@ -26,7 +26,6 @@ public class listCategoriesServlet extends HttpServlet {
             gestionSpectacleRemote gestion = new connexionDB().getConnexionManagerSpectacle();
             this.categories = gestion.listAllCategory();
             this.categories = deleteDoublon(categories);
-            System.out.println("in list categories");
             request.setAttribute("categories", categories);
         } catch (Exception e) {
             e.printStackTrace();
@@ -42,8 +41,6 @@ public class listCategoriesServlet extends HttpServlet {
         try {
             gestionSpectacleRemote gestionSpectacle = new connexionDB().getConnexionManagerSpectacle();
             spectacle spectacle = null;
-            System.out.println("Here");
-            System.out.println(request.getParameter("politique"));
 
         } catch (Exception e) {
             e.printStackTrace();
