@@ -2,14 +2,16 @@
 <html>
   <head>
     <title>Theater</title>
+    <link type="text/css" rel="stylesheet" href="CSS-Directory/menu.css" />
   </head>
   <body>
-  <h1>Welcome to ISRI theater !</h1>
-  <p>You're in the  homepage, here you can search for a pestacle, date, category, pick many tickets.</p>
-  <ul>
-    <li><a href="http://localhost:8080/project_theater_final_war_exploded/createRoomManager">Create roomManager</a></li>
-    <li><a href="http://localhost:8080/project_theater_final_war_exploded/listSpectacle">List all pestacle</a></li>
-    <li><a href="http://localhost:8080/project_theater_final_war_exploded/connectRoomManager">Connect room manager</a></li>
-  </ul>
+  <nav class="menu-list">
+    <ul class="menu-list">
+      <li class="menu-list, active"><a href="http://localhost:8080/project_theater_final_war_exploded/">Homepage</a></li>
+      <li class="menu-list"><a href="http://localhost:8080/project_theater_final_war_exploded/listSpectacle">List spectacle</a></li>
+      <li class="menu-list"><a href="http://localhost:8080/project_theater_final_war_exploded/createRoomManager">Create roomManager</a></li>
+      <li class="menu-list"><a href="http://localhost:8080/project_theater_final_war_exploded/connectRoomManager">Connect room manager</a></li>
+    </ul>
+  </nav>
   </body>
 </html>
