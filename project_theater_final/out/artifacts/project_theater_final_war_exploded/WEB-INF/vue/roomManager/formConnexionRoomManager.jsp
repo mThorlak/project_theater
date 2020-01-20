@@ -24,16 +24,16 @@
     <form method="post" action="connectRoomManager">
         <h2>Connection Room Manager</h2>
 
-        <label for="name">Identifiant <span class="requis">*</span></label>
+        <label for="name">Name <span class="requis">*</span></label>
         <input type="text" id="name" name="name" value="" size="20" maxlength="60" />
         <%--        <span class="error">${formConnexionRoomManager.error['id']}</span>--%>
         <br />
 
-        <label for="password">Mot de passe <span class="requis">*</span></label>
+        <label for="password">Password <span class="requis">*</span></label>
         <input type="password" id="password" name="password" value="" size="20" maxlength="20" />
         <br />
 
-        <input type="submit" value="Connexion" class="sansLabel" />
+        <input type="submit" value="Connection" class="sansLabel" />
         <br />
 
         <p class="${empty formConnexionRoomManager.errors ? 'succes' : 'error'}">${formConnexionRoomManager.result}</p>

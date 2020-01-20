@@ -3,6 +3,7 @@
   <head>
     <title>Theater</title>
     <link type="text/css" rel="stylesheet" href="CSS-Directory/menu.css" />
+    <link type="text/css" rel="stylesheet" href="CSS-Directory/homepageStyle.css" />
   </head>
   <body>
   <nav class="menu-list">
@@ -12,5 +13,12 @@
       <li class="menu-list"><a href="http://localhost:8080/project_theater_final_war_exploded/connectRoomManager">Connect room manager</a></li>
     </ul>
   </nav>
+    <div class="card 1">
+      <div class="card_image"> <img src="src/homepage.png" /> </div>
+      <div class="card_title title-white">
+        <p>Welcome to ISRI theater</p>
+      </div>
+    </div>
+  </div>
   </body>
 </html>

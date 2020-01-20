@@ -62,9 +62,9 @@ public class connexionRoomManagerForm {
 
         /* Initialisation du résultat global de la validation. */
         if ( errors.isEmpty() ) {
-            result = "Connexion success.";
+            result = "Connection success.";
         } else {
-            result = "Connexion error, check again your name and password";
+            result = "Connection error, check again your name and password";
             return null;
         }
 
