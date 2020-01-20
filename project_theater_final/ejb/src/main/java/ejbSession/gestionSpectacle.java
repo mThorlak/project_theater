@@ -52,4 +52,9 @@ public class gestionSpectacle implements gestionSpectacleRemote {
         return em.createNamedQuery( "listSpectacleForCategory" ).setParameter(1, category).getResultList();
     }
 
+    @Override
+    public List<spectacle> listAllSpectacleForDate(String date) {
+        return em.createNamedQuery( "listSpectacleForDate" ).setParameter(1, date).getResultList();
+    }
+
 }

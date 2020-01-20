@@ -14,4 +14,5 @@ public interface gestionSpectacleRemote {
     public List<spectacle> listAllCategory ();
     public List<spectacle> listAllDate ();
     public List<spectacle> listAllSpectacleForCategory(String category);
+    public List<spectacle> listAllSpectacleForDate(String date);
 }

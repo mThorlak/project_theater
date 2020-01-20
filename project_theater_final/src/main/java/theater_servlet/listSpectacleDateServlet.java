@@ -9,37 +9,27 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 
-public class listCategoriesServlet extends HttpServlet {
-    public static final String VUE = "/WEB-INF/vue/showSpectacle/listCategories.jsp";
+public class listSpectacleDateServlet extends HttpServlet {
+    public static final String ATT_MESSAGES = "messages";
+    public static final String VUE = "/WEB-INF/vue/showSpectacle/listSpectacle.jsp";
 
     List<spectacle> categories;
 
     public void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
 
         try {
+            String category = request.getParameter("date");
             gestionSpectacleRemote gestion = new connexionDB().getConnexionManagerSpectacle();
-            this.categories = gestion.listAllCategory();
-            this.categories = deleteDoublon(categories);
-            request.setAttribute("categories", categories);
+            List<spectacle> spectacles = gestion.listAllSpectacleForDate(category);
+            request.setAttribute( "spectacles", spectacles );
         } catch (Exception e) {
             e.printStackTrace();
         }
 
         /* Transmission vers la page en charge de l'affichage des résultats */
         this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );
-    }
-
-    public void doPost( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{ }
-
-    public List deleteDoublon(List list) {
-        Set set = new HashSet(list);
-        List result = new ArrayList(set);
-        return result;
     }
 }

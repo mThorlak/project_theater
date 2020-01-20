@@ -15,18 +15,18 @@ import java.util.List;
 import java.util.Set;
 
 
-public class listCategoriesServlet extends HttpServlet {
-    public static final String VUE = "/WEB-INF/vue/showSpectacle/listCategories.jsp";
+public class listDatesServlet extends HttpServlet {
+    public static final String VUE = "/WEB-INF/vue/showSpectacle/listDates.jsp";
 
-    List<spectacle> categories;
+    List<spectacle> dates;
 
     public void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
 
         try {
             gestionSpectacleRemote gestion = new connexionDB().getConnexionManagerSpectacle();
-            this.categories = gestion.listAllCategory();
-            this.categories = deleteDoublon(categories);
-            request.setAttribute("categories", categories);
+            this.dates = gestion.listAllDate();
+            this.dates = deleteDoublon(dates);
+            request.setAttribute("dates", dates);
         } catch (Exception e) {
             e.printStackTrace();
         }

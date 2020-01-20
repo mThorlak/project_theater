@@ -11,6 +11,7 @@ import java.util.List;
         @NamedQuery(name="listCategory", query="SELECT spectacle.category FROM spectacle spectacle"),
         @NamedQuery(name="listDate", query="SELECT spectacle.date FROM spectacle spectacle"),
         @NamedQuery(name="listSpectacleForCategory", query="SELECT spectacle FROM spectacle spectacle WHERE spectacle.category = ?1"),
+        @NamedQuery(name="listSpectacleForDate", query="SELECT spectacle FROM spectacle spectacle WHERE spectacle.date = ?1"),
 })
 public class spectacle implements Serializable {
     @Id

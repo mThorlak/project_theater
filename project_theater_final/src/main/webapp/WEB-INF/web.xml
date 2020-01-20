@@ -29,8 +29,16 @@
         <servlet-class>theater_servlet.listCategoriesServlet</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>listDatesServlet</servlet-name>
+        <servlet-class>theater_servlet.listDatesServlet</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>listSpectacleCategoryServlet</servlet-name>
         <servlet-class>theater_servlet.listSpectacleCategoryServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>listSpectacleDateServlet</servlet-name>
+        <servlet-class>theater_servlet.listSpectacleDateServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>buyTicketSpectacle</servlet-name>
@@ -72,8 +80,16 @@
         <url-pattern>/listCategories</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>listDatesServlet</servlet-name>
+        <url-pattern>/listDates</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>listSpectacleCategoryServlet</servlet-name>
         <url-pattern>/listSpectacleByCategory</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>listSpectacleDateServlet</servlet-name>
+        <url-pattern>/listSpectacleByDate</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>buyTicketSpectacle</servlet-name>
